@@ -4,6 +4,7 @@ import User from '../../../assets/img/Elliot.jpg'
 import UserProfilePhoto from '../../components/UserProfilePhoto'
 import HeaderNav from '../../components/HeaderNav/index'
 import FollowersList from '../../components/FollowersList'
+import TecnologiesList from '../../components/TecnologiesList'
 
 
 function Home(props) {
@@ -21,7 +22,8 @@ function Home(props) {
         
         <styled.Company> Cybersecurity Engineer at Allsafe </styled.Company>
 
-        <FollowersList/>
+        <FollowersList />
+        <TecnologiesList />
       </styled.Container>
     
     </React.Fragment>
