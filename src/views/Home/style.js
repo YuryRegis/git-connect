@@ -5,9 +5,9 @@ import Theme from "../../../assets/style/global"
 export const Container = styled.View` 
     flex: 1;
     background-color: ${Theme.background};
-
+    
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
 `
 
 export const RowContainer = styled.View`

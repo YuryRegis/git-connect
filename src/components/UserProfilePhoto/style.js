@@ -33,6 +33,7 @@ export const InfoIcon = styled.View`
     /* z-index: 1;     */
 `
 export const Container = styled.View`
+    margin-top: 16px;
     flex-direction: column;
     align-items: flex-end;
 `
