@@ -3,6 +3,7 @@ import * as styled from './style'
 import User from '../../../assets/img/Elliot.jpg'
 import UserProfilePhoto from '../../components/UserProfilePhoto'
 import HeaderNav from '../../components/HeaderNav/index'
+import FollowersList from '../../components/FollowersList'
 
 
 function Home(props) {
@@ -19,7 +20,8 @@ function Home(props) {
         </styled.RowContainer>
         
         <styled.Company> Cybersecurity Engineer at Allsafe </styled.Company>
-      
+
+        <FollowersList/>
       </styled.Container>
     
     </React.Fragment>

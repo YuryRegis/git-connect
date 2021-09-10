@@ -17,6 +17,7 @@ export const theme = {
     button: {
         text: {
             color: '#FFF',
+            linkColor: '#01CDFA',
             size: 17
         },
         primaryColor: '#8D44AD',
