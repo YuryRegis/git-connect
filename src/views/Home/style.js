@@ -22,13 +22,13 @@ export const UserName = styled.Text`
 `
 
 export const UserLastName = styled.Text`
-    color: ${Theme.secondaryColor};
+    color: ${Theme.primaryColor};
     font-size: ${Theme.font.size}px;
     font-family: 'roboto-light';
 `
 
 export const Company = styled.Text`
-    color: ${Theme.secondaryColor};
+    color: ${Theme.primaryColor};
     font-size: ${Theme.font.size}px;
     font-family: 'roboto-thin';
 `

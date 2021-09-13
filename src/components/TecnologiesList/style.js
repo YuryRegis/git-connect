@@ -16,9 +16,7 @@ export const RowContainer = styled.View`
         return main ? 'space-between' : 'flex-start'
     }};
 
-    width: ${({main}) => {
-        return main ? Dimensions.get('window').width : 'auto'
-    }};
+    width: ${Dimensions.get('window').width }px;
 `
 
 export const Title = styled.Text`

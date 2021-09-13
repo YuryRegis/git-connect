@@ -1,7 +1,7 @@
 export const theme = {
     background: '#000',
     primaryColor: '#EEE',
-    secondaryColor: '#999',
+    secondaryColor: '#B9B9B9',
     gradient: {
         primary: '#8D44AD', 
         secondary: '#F13D3D'

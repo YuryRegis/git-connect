@@ -35,7 +35,7 @@ function TecnologiesList(props) {
             <styled.Title> Principais tecnologias </styled.Title>
             
             <styled.SeeAllButton> 
-                <styled.SeeAllText> Ver todas </styled.SeeAllText>
+                <styled.SeeAllText> Ver projetos </styled.SeeAllText>
             </styled.SeeAllButton>
         </styled.RowContainer>
 
