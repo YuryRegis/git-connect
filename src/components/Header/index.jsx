@@ -3,7 +3,7 @@ import * as styled from './style'
 import {TouchableOpacity} from 'react-native'
 
 
-function HeaderNav(props){
+function Header(props){
 
     return (
         <styled.RowContainer>
@@ -21,4 +21,4 @@ function HeaderNav(props){
     )
 }
 
-export default HeaderNav
+export default Header
