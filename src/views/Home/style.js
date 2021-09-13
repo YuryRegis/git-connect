@@ -97,6 +97,20 @@ export const FlatElementTitle = styled.Text`
     color: ${Theme.primaryColor};
 `
 
+export const BioContainer = styled.View`
+    margin: 16px 16px 0 16px;
+    padding: 8px;
+
+    background-color: ${Theme.topProjectsContainer.primaryColor};
+`
+
+export const BioText = styled.Text`
+    margin: 8px 8px 4px 0;
+    color: ${Theme.primaryColor};
+    font-size: ${Theme.font.size}px;
+    font-family: 'roboto-thin';
+`
+
 export const ButtonContent = styled.View`
     padding: 10px;
     flex-direction: row;

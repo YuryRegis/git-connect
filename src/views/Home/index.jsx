@@ -1,7 +1,7 @@
 import React from 'react'
 import * as styled from './style'
 import User from '../../../assets/img/Elliot.jpg'
-import HeaderNav from '../../components/HeaderNav/index'
+import Header from '../../components/Header/index'
 import FollowersList from '../../components/FollowersList'
 import FollowingList from '../../components/FollowingList'
 import GradientButton from '../../components/GradientButton'
@@ -18,7 +18,7 @@ function Home(props) {
 
   return (
     <React.Fragment>
-      <HeaderNav {...props}/>
+      <Header {...props}/>
       <styled.Container>
 
         <UserProfilePhoto source={User} height={150} width={150}/>
@@ -29,6 +29,11 @@ function Home(props) {
         </styled.RowContainer>
         
         <styled.Company> Cybersecurity Engineer at Allsafe </styled.Company>
+
+        <styled.BioContainer>
+          <styled.Title> Bio </styled.Title>
+          <styled.BioText>Detesto conglomerados multinacionais que exploram pessoas. </styled.BioText>
+        </styled.BioContainer>
 
         <FollowersList />
 
