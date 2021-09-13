@@ -3,13 +3,13 @@ import * as styled from './style'
 import User from '../../../assets/img/Elliot.jpg'
 import HeaderNav from '../../components/HeaderNav/index'
 import FollowersList from '../../components/FollowersList'
-import GradientCards from '../../components/GradientCards'
+import FollowingList from '../../components/FollowingList'
+import GradientButton from '../../components/GradientButton'
 import TechnologiesList from '../../components/TechnologiesList'
 import UserProfilePhoto from '../../components/UserProfilePhoto'
 
 import Data from './data'
 import * as Aux from './aux'
-import { FlatList } from 'react-native-gesture-handler'
 
 
 function Home(props) {
@@ -32,10 +32,20 @@ function Home(props) {
 
         <FollowersList />
 
-        <TechnologiesList />
+        {/* <TechnologiesList /> */}
 
+        <FollowingList />
         
-        
+        <GradientButton>
+          <styled.ButtonContent>
+
+            <styled.TextButton> Editar perfil no GitHub </styled.TextButton>
+            
+            <styled.Icons size={32} name='logo-github'/>
+
+          </styled.ButtonContent>
+        </GradientButton>
+
       </styled.Container>
     </React.Fragment>
   )

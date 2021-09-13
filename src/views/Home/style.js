@@ -96,3 +96,17 @@ export const FlatElementTitle = styled.Text`
     font-size: ${Theme.font.size}px;
     color: ${Theme.primaryColor};
 `
+
+export const ButtonContent = styled.View`
+    padding: 10px;
+    flex-direction: row;
+
+    align-items: center;
+`
+
+export const TextButton = styled.Text`
+    margin-right: 8px;
+    
+    font-size: 20px;
+    color: ${Theme.primaryColor};
+`
