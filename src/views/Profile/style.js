@@ -92,7 +92,8 @@ export const FlatTextElement = styled.Text`
 export const FlatElementTitle = styled.Text`
     padding: 5px 8px 8px 8px;
     text-transform: uppercase;
-    
+
+    font-family: 'roboto-light';
     font-size: ${Theme.font.size}px;
     color: ${Theme.primaryColor};
 `

@@ -6,6 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 
 export const Container = styled.View`
     margin-top: 32px;
+    max-height: 95px;
     background-color: transparent;
 `
 

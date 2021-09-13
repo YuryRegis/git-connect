@@ -2,8 +2,9 @@ import React from 'react'
 import Theme from '../../assets/style/global'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import Home from '../views/Home'
 
+import Home from '../views/Home'
+import Profile from '../views/Profile'
 
 const Tab = createBottomTabNavigator()
 
@@ -38,7 +39,7 @@ export function TabNav (props) {
           })}>
             <Tab.Screen name="Home" component={Home} options={{title:'Home'}}/>
             <Tab.Screen name="Search" component={Home} options={{title:'Search'}}/>
-            <Tab.Screen name="Profile" component={Home} options={{title:'Profile'}}/>
+            <Tab.Screen name="Profile" component={Profile} options={{title:'Profile'}}/>
             <Tab.Screen name="Chat" component={Home} options={{title:'Chat'}}/>
         </Tab.Navigator>
     )

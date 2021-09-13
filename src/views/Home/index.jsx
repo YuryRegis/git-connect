@@ -1,13 +1,21 @@
 import React from 'react'
 import * as styled from './style'
 import User from '../../../assets/img/Elliot.jpg'
-import UserProfilePhoto from '../../components/UserProfilePhoto'
 import HeaderNav from '../../components/HeaderNav/index'
 import FollowersList from '../../components/FollowersList'
-import TecnologiesList from '../../components/TecnologiesList'
+import GradientCards from '../../components/GradientCards'
+import TechnologiesList from '../../components/TechnologiesList'
+import UserProfilePhoto from '../../components/UserProfilePhoto'
+
+import Data from './data'
+import * as Aux from './aux'
+import { FlatList } from 'react-native-gesture-handler'
 
 
 function Home(props) {
+
+  const Repositories = Aux.getMostPopularRepos(Data, 5)
+
   return (
     <React.Fragment>
       <HeaderNav {...props}/>
@@ -23,9 +31,12 @@ function Home(props) {
         <styled.Company> Cybersecurity Engineer at Allsafe </styled.Company>
 
         <FollowersList />
-        <TecnologiesList />
+
+        <TechnologiesList />
+
+        
+        
       </styled.Container>
-    
     </React.Fragment>
   )
 }

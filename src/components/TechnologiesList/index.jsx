@@ -6,7 +6,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 import data from './data'
 
 
-function TecnologiesList(props) {
+function TechnologiesList(props) {
   
   function FlatListHandler({item}) {
     return (
@@ -52,4 +52,4 @@ function TecnologiesList(props) {
 }
 
 
-export default TecnologiesList
+export default TechnologiesList

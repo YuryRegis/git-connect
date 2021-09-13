@@ -22,6 +22,11 @@ export const theme = {
         },
         primaryColor: '#8D44AD',
         secondaryColor: '#F13D3D',
+    },
+
+    // Projects Container
+    topProjectsContainer: {
+        primaryColor: '#202322',
     }
 }
 
