@@ -7,10 +7,11 @@ import { StatusBar } from 'expo-status-bar'
 
 import Navigator from './src/routes'
 
+const Store = store()
 
 function Redux() {
   return (
-    <Provider store={store}>
+    <Provider store={Store}>
       <Navigator/>
     </Provider>
   )
@@ -26,7 +27,7 @@ export function App() {
   
   return ( 
     fontsLoaded 
-      ? <Navigator/>
+      ? Redux()
       : <AppLoading/>
   )
 }
