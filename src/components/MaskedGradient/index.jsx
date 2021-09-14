@@ -11,11 +11,11 @@ function MaskedGradient({children, colors={primary, secondary}, size}) {
 
     return (      
         <MaskedView
-            style={{height: size, width: size}}
+            style={{height: size.h, width: size.w}}
             maskElement={children}
         >
             <LinearGradient
-                style={{height: size, width: size}}
+                style={{height: size.h, width: size.w}}
                 start={{x: 0, y: 0}} end={{x: 1, y: 1}}
                 colors={[colors.primary, colors.secondary]}
             />
