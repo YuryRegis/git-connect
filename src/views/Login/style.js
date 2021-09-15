@@ -3,6 +3,8 @@ import Theme from '../../../assets/style/global'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 
+export const placeHolderColor = Theme.input.placeholderColor
+
 export const Container = styled.View`
     flex: 1;
     align-items: center;

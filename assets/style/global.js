@@ -13,6 +13,12 @@ export const theme = {
         size: 16,
     },
 
+    // Inputs
+    input: {
+        borderColor: '#EEE',
+        placeholderColor: '#707478',
+    },
+
     // Buttons
     button: {
         text: {

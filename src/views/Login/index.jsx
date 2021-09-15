@@ -30,7 +30,8 @@ function Login(props) {
             <styled.InputContainer>
                 <styled.Input 
                     onChangeText={(text) => setInput(text)}
-                    placeholder='GitHub Username'/>
+                    placeholder='GitHub Username'
+                    placeholderTextColor={styled.placeHolderColor}/>
 
                 <GradientButton onPress={gradientButtonHandler}>
                     <styled.ButtonContainer>
