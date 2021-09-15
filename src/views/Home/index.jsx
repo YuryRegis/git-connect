@@ -18,7 +18,7 @@ function Home(props) {
 
   return (
     <React.Fragment>
-      <Header {...props}/>
+      <Header logout {...props}/>
       <styled.Container>
 
         <UserProfilePhoto source={User} height={150} width={150}/>

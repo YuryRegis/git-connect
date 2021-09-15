@@ -1,11 +1,17 @@
 import * as styled from './style'
 import React, {useState} from 'react'
+import { connect } from 'react-redux'
 import GradientButton from '../../components/GradientButton'
 import MaskedGradient from '../../components/MaskedGradient'
+import {login} from '../../store/actions/user'
 
 
 function Login(props) {
     const [input, setInput] = useState('')
+
+    function gradientButtonHandler() {
+        props.onLogin({login: input})
+    }
 
     return (
         <styled.Container>
@@ -26,7 +32,7 @@ function Login(props) {
                     onChangeText={(text) => setInput(text)}
                     placeholder='GitHub Username'/>
 
-                <GradientButton onPress={()=>{}}>
+                <GradientButton onPress={gradientButtonHandler}>
                     <styled.ButtonContainer>
                         <styled.ButtonText> Sign In </styled.ButtonText>
                     </styled.ButtonContainer>
@@ -37,4 +43,11 @@ function Login(props) {
     )
 }
 
-export default Login
+
+function mapDispatchToProps(dispatch) {
+    return {
+        onLogin: (username) => dispatch(login(username))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Login)

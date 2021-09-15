@@ -4,10 +4,14 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 
 
 export const RowContainer = styled.View`
-    padding: 16px;
+    ${({padding}) => padding
+        ? `padding: ${padding}px;`
+        : null
+    }
+
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: ${({justify})=> justify};
 
     background-color: ${Theme.background};
 `
@@ -37,4 +41,10 @@ export const Icon = styled(Ionicons)`
     color: ${Theme.primaryColor};
 
     margin-right: 3px;
+`
+
+export const LogoutText = styled.Text`
+    font-size: 19px;
+    font-family: 'roboto-regular';
+    color: ${Theme.button.text.logoutColor};
 `
