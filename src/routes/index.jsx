@@ -1,11 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { SafeAreaView } from 'react-native'
+import { SafeAreaView, StatusBar } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 
 import TabNav from './Tab'
 import Login from '../views/Login'
 
+StatusBar.setBarStyle('light-content')
+StatusBar.setBackgroundColor('#000')
 
 function validateAuth(isAuthenticated){
     if(isAuthenticated){

@@ -12,7 +12,8 @@ function Header(props){
     }
 
     return (
-        <styled.RowContainer justify='space-between'>
+        <styled.Container>
+          <styled.RowContainer justify='space-between'>
 
             <styled.RowContainer padding={16} justify='flex-start'>
                 <TouchableOpacity onPress={()=>{}}>
@@ -33,7 +34,8 @@ function Header(props){
                 </styled.RowContainer>
             )}
 
-        </styled.RowContainer>  
+          </styled.RowContainer>
+        </styled.Container>  
     )
 }
 

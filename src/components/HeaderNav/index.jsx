@@ -6,7 +6,8 @@ import {TouchableOpacity} from 'react-native'
 function HeaderNav(props){
 
     return (
-        <styled.RowContainer>
+        <styled.Container>
+          <styled.RowContainer>
 
             <TouchableOpacity onPress={()=>{}}>
                 <styled.Icon size={23} name='chevron-back'/> 
@@ -16,7 +17,8 @@ function HeaderNav(props){
                 <styled.Icon size={23} name='chatbubble-ellipses'/> 
             </TouchableOpacity>
         
-        </styled.RowContainer>
+          </styled.RowContainer>
+        </styled.Container>
     )
 }
 
