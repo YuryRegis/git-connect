@@ -43,6 +43,11 @@ export const TopProjectsContainer = styled.View`
     background-color: ${Theme.topProjectsContainer.primaryColor}; 
 `
 
+export const ProjectsContent = styled.View`
+    flex: 1;
+    justify-content: center;
+`
+
 export const Title = styled.Text`
     font-size: ${Theme.font.size}px;
     color: ${Theme.primaryColor};
@@ -53,7 +58,6 @@ export const Title = styled.Text`
 export const scrollContainer = styled.View`
     height: 150px;
     padding: 8px;
-
 `
 
 export const RollFlatContainer = styled.View`
@@ -71,21 +75,6 @@ export const LeftContent = styled.Text`
     font-size: 10px;
     /* font-weight: normal; */
     font-family: 'roboto-light';
-    color: ${Theme.primaryColor};
-`
-
-export const ElementContainer = styled.View`
-    padding: 8px 5px 0 0;
-    flex-direction: row;
-`
-
-export const Icons = styled(Ionicons)`
-    color: ${Theme.primaryColor};
-`
-
-export const FlatTextElement = styled.Text`
-    font-size: 10px;
-    margin-left: 2px;
     color: ${Theme.primaryColor};
 `
 

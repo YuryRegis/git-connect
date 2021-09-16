@@ -1,3 +1,5 @@
+import Search from '../views/Search'
+
 const axios = require('axios')
 
 
@@ -19,6 +21,7 @@ const GitApi = axios.create({
 }
 
  export async function searchRepos({search, language, page=1}) {
+    console.log(`${search}, ${language}, ${page} }`)
     const languageTerm = language ? `&language:${language}` : ''
     const searchTerm = search ? search.split(' ').join('+') : ''
     const URL = `https://api.github.com/search/repositories?q=${searchTerm}${languageTerm}&sort=stars&order=desc&page=${page}`

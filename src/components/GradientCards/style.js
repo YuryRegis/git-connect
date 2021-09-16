@@ -3,5 +3,6 @@ import Theme from '../../../assets/style/global'
 
 
 export const Container = styled.View`
+    width: 100%;
     padding: 8px;
 `

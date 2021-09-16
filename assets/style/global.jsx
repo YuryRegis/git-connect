@@ -5,7 +5,11 @@ export const theme = {
     tertiaryColor: '#6B6C6F',
     gradient: {
         primary: '#8D44AD', 
-        secondary: '#F13D3D'
+        secondary: '#F13D3D',
+        tertiary: '#8257e5',
+        quaternary: '#d10cb7',
+        quinary: '#A370F7',
+        senary: '#ccb220',
     },
 
     // Fonts

@@ -10,7 +10,7 @@ import UserProfilePhoto from '../../components/UserProfilePhoto'
 import Data from './data'
 import * as Aux from './aux'
 import { FlatList } from 'react-native-gesture-handler'
-
+import RepoCounters from '../../components/RepoCounters'
 
 function Profile(props) {
 
@@ -26,41 +26,7 @@ function Profile(props) {
           </styled.LeftContent>
           
           <styled.RightContent>
-            <styled.ElementContainer key={`stars${item.id}`} >
-              <styled.Icons size={10}  
-                name='star-half'
-                key={`star-half${item.id}`}/>
-              <styled.FlatTextElement key={`stars_c${item.id}`}>
-                {item.stargazers_count}
-              </styled.FlatTextElement>
-            </styled.ElementContainer>
-
-            <styled.ElementContainer key={`fork${item.id}`} >
-              <styled.Icons size={10}  
-                name='git-branch'
-                key={`forks${item.id}`}/>
-              <styled.FlatTextElement key={`forks_c${item.id}`}>
-                {item.forks_count}
-              </styled.FlatTextElement>
-            </styled.ElementContainer>
-
-            <styled.ElementContainer key={`issues${item.id}`} >
-              <styled.Icons size={10}  
-                name='bug'
-                key={`bugs${item.id}`}/>
-              <styled.FlatTextElement key={`issues_c${item.id}`}>
-                {item.open_issues_count}
-              </styled.FlatTextElement>
-            </styled.ElementContainer>
-
-            <styled.ElementContainer key={`watchers${item.id}`} >
-              <styled.Icons size={10}  
-                name='eye-sharp'
-                key={`eye${item.id}`}/>
-              <styled.FlatTextElement key={`watchers_c${item.id}`}>
-                {item.watchers_count}
-              </styled.FlatTextElement>
-            </styled.ElementContainer>
+            <RepoCounters repo={item} />
           </styled.RightContent>
         </styled.RollFlatContainer> 
 
@@ -90,19 +56,21 @@ function Profile(props) {
 
         <TechnologiesList />
 
+        <styled.ProjectsContent>
+          <styled.TopProjectsContainer>
+            <styled.Title> Top Projects </styled.Title>
+
+            <styled.scrollContainer>
+              <FlatList
+                data={Repositories}
+                keyExtractor={(Repositories) => Repositories.id}
+                renderItem={FlatListHandler}
+              />
+            </styled.scrollContainer>
+
+          </styled.TopProjectsContainer>
+        </styled.ProjectsContent>
         
-        <styled.TopProjectsContainer>
-          <styled.Title> Top Projects </styled.Title>
-
-          <styled.scrollContainer>
-            <FlatList
-              data={Repositories}
-              keyExtractor={(Repositories) => Repositories.id}
-              renderItem={FlatListHandler}
-            />
-          </styled.scrollContainer>
-        </styled.TopProjectsContainer>
-
       </styled.Container>
     </React.Fragment>
   )

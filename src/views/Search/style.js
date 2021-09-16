@@ -6,6 +6,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const isAndroid = Platform.OS === 'android'
 export const placeholderColor = Theme.input.placeholderColor
+export const gradient = Theme.gradient
 
 export const Picker = {
     width: 135,
@@ -96,5 +97,39 @@ export const SearchButton = styled.TouchableOpacity`
 `
 
 export const Icon = styled(Ionicons)`
+    color: ${({isBlack}) => isBlack ? 'black' : Theme.primaryColor};
+`
+
+export const SearchContent = styled.View`
+    flex: 1;
+    width: 100%;
+    padding: 0px 2px;
+    align-items: center;
+    justify-content: center;
+`
+
+export const Loading = styled.Text`
+    font-size: ${Theme.font.size}px;
+    font-family: 'roboto-light';
     color: ${Theme.primaryColor};
+    margin: 16px;
+`
+
+export const LoadingIndicator = styled.ActivityIndicator`
+    padding: 0 16px;
+    color: ${Theme.primaryColor};
+`
+
+export const EmptyContainer = styled.View`
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+`
+
+export const EmptyText = styled.Text`
+    font-size: ${Theme.font.size}px;
+    font-family: 'roboto-regular';
+    color: ${Theme.tertiaryColor};
+
+    margin-top: 16px;
 `
