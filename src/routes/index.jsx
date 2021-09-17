@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import TabNav from './Tab'
 import Login from '../views/Login'
 
+
 StatusBar.setBarStyle('light-content')
 StatusBar.setBackgroundColor('#000')
 
