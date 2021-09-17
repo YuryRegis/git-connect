@@ -1,15 +1,27 @@
 import React from 'react'
 import Theme from '../../assets/style/global'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import Home from '../views/Home'
 import Search from '../views/Search'
 import Profile from '../views/Profile'
+import WebContent from '../views/WebContentView'
 
-const Tab = createBottomTabNavigator()
+
+function SearchStack(props) {
+  const Stack = createStackNavigator()
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Search" component={Search} options={{ headerShown: false }} />
+      <Stack.Screen name="Repository" component={WebContent} options={{ headerShown: false }} />
+    </Stack.Navigator>
+  )
+}
 
 export function TabNav (props) {
+    const Tab = createBottomTabNavigator()
     return (
         <Tab.Navigator
             initialRouteName="Home"         
@@ -18,16 +30,16 @@ export function TabNav (props) {
               let iconName;
             
               switch (route.name) {
-                case 'Home':
+                case 'HomeTab':
                     iconName = 'home-outline';
                     break;
-                case 'Search':
+                case 'SearchTab':
                    iconName = 'search';
                     break;
-                case 'Profile':
+                case 'ProfileTab':
                     iconName = 'person-circle-outline';
                     break;
-                case 'Chat':
+                case 'ChatTab':
                     iconName = 'chatbubble-ellipses-outline';
                     break;
             }
@@ -39,10 +51,10 @@ export function TabNav (props) {
             tabBarInactiveTintColor: Theme.tertiaryColor,
             tabBarShowLabel: false,
           })}>
-            <Tab.Screen name="Home" component={Home} options={{title:'Home'}}/>
-            <Tab.Screen name="Search" component={Search} options={{title:'Search'}}/>
-            <Tab.Screen name="Profile" component={Profile} options={{title:'Profile'}}/>
-            <Tab.Screen name="Chat" component={Home} options={{title:'Chat'}}/>
+            <Tab.Screen name="HomeTab" component={Home} options={{title:'Home'}}/>
+            <Tab.Screen name="SearchTab" component={SearchStack} options={{title:'Search'}}/>
+            <Tab.Screen name="ProfileTab" component={Profile} options={{title:'Profile'}}/>
+            <Tab.Screen name="ChatTab" component={Home} options={{title:'Chat'}}/>
         </Tab.Navigator>
     )
 }

@@ -4,7 +4,7 @@ import * as styled from './style'
 import Languages from './languages'
 import { FlatList } from 'react-native'
 import Header from '../../components/Header'
-import { RepoCard } from '../../components/RepoCard'
+import RepoCard from '../../components/RepoCard'
 import { Picker } from '@react-native-community/picker'
 import MaskedGradient from '../../components/MaskedGradient'
 
@@ -24,7 +24,7 @@ export function Search(props) {
             primary: styled.gradient.quaternary,
             secondary: styled.gradient.secondary }
         return (
-            <RepoCard repository={item} colors={colors}/>
+            <RepoCard repository={item} colors={colors} {...props}/>
         )
     }
 

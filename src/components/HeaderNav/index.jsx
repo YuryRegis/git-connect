@@ -5,15 +5,23 @@ import {TouchableOpacity} from 'react-native'
 
 function HeaderNav(props){
 
+    function goBackHandler(){
+        return props.navigation.goBack()
+    }
+
+    function goChatHandler(){
+        return props.navigation.navigate('ChatTab')
+    }
+
     return (
         <styled.Container>
           <styled.RowContainer>
 
-            <TouchableOpacity onPress={()=>{}}>
+            <TouchableOpacity onPress={()=>goBackHandler()}>
                 <styled.Icon size={23} name='chevron-back'/> 
             </TouchableOpacity>
             
-            <TouchableOpacity onPress={()=>{}}>
+            <TouchableOpacity onPress={()=>goChatHandler()}>
                 <styled.Icon size={23} name='chatbubble-ellipses'/> 
             </TouchableOpacity>
         

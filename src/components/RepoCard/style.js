@@ -7,6 +7,10 @@ export const Container = styled.View`
     margin: 0px 16px;
 `
 
+export const ButtonCard = styled.TouchableOpacity`
+    width: 100%;
+`
+
 export const GradientColors = {
     primary: Theme.gradient.primary,
     secondary: Theme.gradient.secondary,
