@@ -10,12 +10,22 @@ import Profile from '../views/Profile'
 import WebContent from '../views/WebContentView'
 
 
-function SearchStack(props) {
+function SearchStack() {
   const Stack = createStackNavigator()
   return (
     <Stack.Navigator>
       <Stack.Screen name="Search" component={Search} options={{ headerShown: false }} />
       <Stack.Screen name="Repository" component={WebContent} options={{ headerShown: false }} />
+    </Stack.Navigator>
+  )
+}
+
+function ProfileStack() {
+  const Stack = createStackNavigator()
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="ProfileStack" component={Home} options={{ headerShown: false }} />
+      <Stack.Screen name="WebContent" component={WebContent} options={{ headerShown: false }} />
     </Stack.Navigator>
   )
 }
@@ -51,7 +61,7 @@ export function TabNav (props) {
             tabBarInactiveTintColor: Theme.tertiaryColor,
             tabBarShowLabel: false,
           })}>
-            <Tab.Screen name="HomeTab" component={Home} options={{title:'Home'}}/>
+            <Tab.Screen name="HomeTab" component={ProfileStack} options={{title:'Home'}}/>
             <Tab.Screen name="SearchTab" component={SearchStack} options={{title:'Search'}}/>
             <Tab.Screen name="ProfileTab" component={Profile} options={{title:'Profile'}}/>
             <Tab.Screen name="ChatTab" component={Home} options={{title:'Chat'}}/>

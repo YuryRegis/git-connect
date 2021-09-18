@@ -1,9 +1,10 @@
 import * as styled from './style'
 import React, {useState} from 'react'
 import { connect } from 'react-redux'
+import { login } from '../../store/actions/user'
+import { ActivityIndicator } from 'react-native'
 import GradientButton from '../../components/GradientButton'
 import MaskedGradient from '../../components/MaskedGradient'
-import {login} from '../../store/actions/user'
 
 
 function Login(props) {
@@ -40,6 +41,12 @@ function Login(props) {
                 </GradientButton>
             </styled.InputContainer>
 
+            {props.user.isLoading && <>
+                <styled.AbsoluteContainer>
+                    <ActivityIndicator size="large" color="#A370F7" />
+                </styled.AbsoluteContainer>
+            </>}
+
         </styled.Container>
     )
 }
@@ -51,4 +58,10 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(null, mapDispatchToProps)(Login)
+function mapStateToProps(state) {
+    return {
+        user: state.user
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

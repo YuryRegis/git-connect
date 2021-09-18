@@ -46,14 +46,15 @@ export const TopProjectsContainer = styled.View`
 export const Title = styled.Text`
     font-size: ${Theme.font.size}px;
     color: ${Theme.primaryColor};
+    margin-left: 8px;
 
     text-transform: capitalize;
 `
 
-export const scrollContainer = styled.View`
-    height: 150px;
-    padding: 8px;
-
+export const AlignedContainer = styled.View`
+    flex: 1;
+    align-items: center;
+    justify-content: center;
 `
 
 export const RollFlatContainer = styled.View`
@@ -105,10 +106,14 @@ export const BioContainer = styled.View`
 `
 
 export const BioText = styled.Text`
-    margin: 8px 8px 4px 0;
+    margin: 8px 8px 0 8px;
+    padding-top: 8px;
     color: ${Theme.primaryColor};
     font-size: ${Theme.font.size}px;
     font-family: 'roboto-thin';
+
+    border-top-width: .5px;
+    border-top-color: ${Theme.primaryColor};
 `
 
 export const ButtonContent = styled.View`

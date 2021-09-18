@@ -49,7 +49,7 @@ export const Input = styled.TextInput`
 
     border-width: 2px;
     border-radius: 25px;
-    border-color: ${Theme.primaryColor};
+    border-color: ${Theme.gradient.quinary};
 
     font-size: 20px;
     font-family: 'roboto-regular';
@@ -68,4 +68,18 @@ export const ButtonText = styled.Text`
     font-size: 30px;
     font-family: 'roboto-regular';
     color: ${Theme.primaryColor};
+`
+
+export const AbsoluteContainer = styled.View`
+    height: 100%;
+    justify-content: flex-end;
+    padding-bottom: 150px;
+    position: absolute;
+`
+
+export const ActivityContent = styled.View`
+    flex: 1;
+    position: relative;
+    /* background-color: red; */
+    justify-content: flex-end;
 `
