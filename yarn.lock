@@ -5966,6 +5966,11 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
 
+toastify-react-native@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/toastify-react-native/-/toastify-react-native-2.0.0.tgz#5a44d45156dd3aec4b43f349b68c29fc5f323bb4"
+  integrity sha512-1OZVtZifjSTR4VNcNlbBtTlN79eU7Cp6foyJwd1p7zwlQP6jbzSf0EzgTNNQ8gR2m8vu5X8YtysE9e/2GHXzRA==
+
 toidentifier@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
