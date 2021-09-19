@@ -5,7 +5,6 @@ import MaskedGradient from '../MaskedGradient'
 
 export function DefaultIconProfile({size}) {
     const incognitaSize = size/3
-    console.log('Size', size)
     return (
         <styled.IconContainer>
             
