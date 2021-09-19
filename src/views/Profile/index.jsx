@@ -12,8 +12,8 @@ import * as Aux from './aux'
 import { FlatList } from 'react-native-gesture-handler'
 import RepoCounters from '../../components/RepoCounters'
 
-function Profile(props) {
-
+function Profile({navigation,...rest}) {
+  console.log('Nav Profile -> ',navigation)
   const Repositories = Aux.getMostPopularRepos(Data, 5)
 
   function FlatListHandler({item}) {
@@ -40,7 +40,7 @@ function Profile(props) {
 
   return (
     <React.Fragment>
-      <HeaderNav {...props}/>
+      <HeaderNav navigation={navigation} {...rest}/>
       <styled.Container>
 
         <UserProfilePhoto source={User} height={150} width={150}/>
@@ -52,7 +52,7 @@ function Profile(props) {
         
         <styled.Company> Cybersecurity Engineer at Allsafe </styled.Company>
 
-        <FollowersList />
+        <FollowersList navigate={navigation.push}/>
 
         <TechnologiesList />
 

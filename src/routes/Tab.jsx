@@ -26,6 +26,7 @@ function ProfileStack() {
     <Stack.Navigator>
       <Stack.Screen name="ProfileStack" component={Home} options={{ headerShown: false }} />
       <Stack.Screen name="WebContent" component={WebContent} options={{ headerShown: false }} />
+      <Stack.Screen name="FollowerProfile" component={Profile} options={{ headerShown: false }} />
     </Stack.Navigator>
   )
 }
@@ -63,7 +64,7 @@ export function TabNav (props) {
           })}>
             <Tab.Screen name="HomeTab" component={ProfileStack} options={{title:'Home'}}/>
             <Tab.Screen name="SearchTab" component={SearchStack} options={{title:'Search'}}/>
-            <Tab.Screen name="ProfileTab" component={Profile} options={{title:'Profile'}}/>
+            <Tab.Screen name="ProfileTab" component={ProfileStack} options={{title:'Profile'}}/>
             <Tab.Screen name="ChatTab" component={Home} options={{title:'Chat'}}/>
         </Tab.Navigator>
     )

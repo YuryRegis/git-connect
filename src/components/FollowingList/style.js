@@ -15,7 +15,7 @@ export const RowContainer = styled.View`
     }};
 
     width: ${({main}) => {
-        return main ? Dimensions.get('window').width : 'auto'
+        return main ? `${Dimensions.get('window').width}px` : 'auto'
     }};
 `
 

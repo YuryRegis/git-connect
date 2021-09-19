@@ -2,6 +2,9 @@ import { Dimensions } from 'react-native'
 import styled from 'styled-components/native'
 import Theme from '../../../assets/style/global'
 
+
+export const activityColor = Theme.activityIndicator.primary
+
 export const Container = styled.View`
     margin-top: 32px;
     background-color: transparent;
@@ -15,7 +18,7 @@ export const RowContainer = styled.View`
     }};
 
     width: ${({main}) => {
-        return main ? Dimensions.get('window').width : 'auto'
+        return main ? `${Dimensions.get('window').width}px` : 'auto'
     }};
 `
 

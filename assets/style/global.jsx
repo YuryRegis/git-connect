@@ -12,6 +12,12 @@ export const theme = {
         senary: '#ccb220',
     },
 
+    // Activity Indicator
+    activityIndicator: {
+        primary: '#A370F7',
+        secondary: '#F13D3D',
+    },
+
     // Fonts
     font: {
         family: 'roboto-regular',

@@ -15,13 +15,8 @@ import * as Aux from './aux'
 
 
 function Home({user, navigation, onRedirect, ...rest}) {
-
-  console.log('USER_Link ->', user.gitHubUrl)
-  console.log('USER_Followers ->', user.followers.nodes.length)
-  console.log('USER_name ->', user.login)
-
-  const Repositories = Aux.getMostPopularRepos(Data, 5)
-
+  console.log('Home Nav -> ', navigation)
+  
   function gradientButtonHandler() {
     onRedirect(user.gitHubUrl)
     return navigation.navigate('WebContent')
@@ -46,11 +41,11 @@ function Home({user, navigation, onRedirect, ...rest}) {
           <styled.BioText>{user.bio}</styled.BioText>
         </styled.BioContainer>
 
-        <FollowersList />
+        <FollowersList navigate={navigation.push}/>
 
         {/* <TechnologiesList /> */}
 
-        <FollowingList />
+        <FollowingList navigation={navigation}/>
         
         <styled.AlignedContainer>
           <GradientButton onPress={gradientButtonHandler}>
