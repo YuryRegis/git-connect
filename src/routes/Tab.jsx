@@ -4,11 +4,24 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
+// Views
 import Home from '../views/Home'
+import Chat from '../views/Chat'
 import Search from '../views/Search'
 import Profile from '../views/Profile'
 import WebContent from '../views/WebContentView'
+import Conversation from '../views/Conversation'
 
+
+function MessageStack({navigation}) {
+  const Stack = createStackNavigator()
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Chat" component={Chat} options={{ headerShown: false }} />
+      <Stack.Screen name="Conversation" component={Conversation} options={{ headerShown: false }} />
+    </Stack.Navigator>
+  )
+}
 
 function SearchStack() {
   const Stack = createStackNavigator()
@@ -65,7 +78,7 @@ export function TabNav (props) {
             <Tab.Screen name="HomeTab" component={ProfileStack} options={{title:'Home'}}/>
             <Tab.Screen name="SearchTab" component={SearchStack} options={{title:'Search'}}/>
             <Tab.Screen name="ProfileTab" component={ProfileStack} options={{title:'Profile'}}/>
-            <Tab.Screen name="ChatTab" component={Home} options={{title:'Chat'}}/>
+            <Tab.Screen name="ChatTab" component={MessageStack} options={{title:'Chat'}}/>
         </Tab.Navigator>
     )
 }
