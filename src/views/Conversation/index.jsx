@@ -7,7 +7,7 @@ import HeaderNav from "../../components/HeaderNav"
 export function Conversation(props) {
     return (
         <styled.Container>
-            <HeaderNav />
+            <HeaderNav {...props}/>
         </styled.Container>
     )
 }
