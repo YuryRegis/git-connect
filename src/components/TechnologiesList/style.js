@@ -4,6 +4,9 @@ import Theme from '../../../assets/style/global'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 
+export const IconSvgColor = Theme.SVG.icon.color
+export const ActivityIndicatorColor = Theme.activityIndicator.primary
+
 export const Container = styled.View`
     margin-top: 32px;
     max-height: 95px;

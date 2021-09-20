@@ -14,7 +14,6 @@ export const Container = styled.View`
 `
 
 export const LogoIcon = styled(Ionicons)`
-    color: ${Theme.primaryColor};
     color: black;
 `
 

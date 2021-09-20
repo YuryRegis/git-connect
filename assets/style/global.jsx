@@ -45,6 +45,15 @@ export const theme = {
     // Projects Container
     topProjectsContainer: {
         primaryColor: '#202322',
+    },
+
+    // Icons Languages
+    SVG: {
+        icon: {color: '#eee'},
+        background: {
+            primaryColor: '#8D44AD',
+            secondaryColor: '#F13D3D',
+        }
     }
 }
 

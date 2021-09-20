@@ -19,8 +19,8 @@ function Login(props) {
 
             <MaskedGradient size={{h: 250, w:250}}>
               <styled.LogoIcon name='logo-github' size={250}/>
-            </MaskedGradient>
-
+            </MaskedGradient> 
+            
             <styled.RowContainer>
                 {/* <MaskedGradient size={{h:50, w:55}}> */}
                   <styled.LogoTextBold>Git</styled.LogoTextBold>

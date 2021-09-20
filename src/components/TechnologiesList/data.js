@@ -2,27 +2,31 @@ export const LogosData = [
     {
         id: 1,
         name: 'JavaScript',
-        source: 'logo-nodejs'
+        source: 'logo-nodejs',
+        language: 'JavaScript',
     },
     {
         id: 2,
         name: 'Python',
-        source: 'logo-python'
+        source: 'logo-python',
+        language: 'Python',
     },
     {
         id: 3,
         name: 'Electron',
-        source: 'logo-electron'
+        source: 'logo-electron',
+        language: 'Electron',
     },
     {
         id: 4,
         name: 'Octocat',
-        source: 'logo-octocat'
+        source: 'logo-octocat',
+        language: '',
     },
     {
         id: 5,
         name: 'Slack',
-        source: 'logo-slack'
+        source: null
     }
 ]
 

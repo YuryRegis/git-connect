@@ -3,6 +3,8 @@ import Theme from "../../../assets/style/global"
 import Ionicons from "react-native-vector-icons/Ionicons"
 
 
+export const LogoIcon = styled(Ionicons)``
+
 export const Container = styled.View` 
     flex: 1;
     background-color: ${Theme.background};
@@ -38,13 +40,13 @@ export const TopProjectsContainer = styled.View`
     border-radius: 3px;
     margin: 16px 16px 0 16px;
     padding: 8px;
-    width: 95%;
 
     background-color: ${Theme.topProjectsContainer.primaryColor}; 
 `
 
 export const ProjectsContent = styled.View`
     flex: 1;
+    width: 100%;
     justify-content: center;
 `
 
@@ -56,6 +58,7 @@ export const Title = styled.Text`
 `
 
 export const scrollContainer = styled.View`
+    width: 100%;
     height: 150px;
     padding: 8px;
 `
