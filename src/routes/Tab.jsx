@@ -72,8 +72,8 @@ export function TabNav (props) {
             },
             headerShown: false,
             tabBarStyle: { backgroundColor: Theme.background, borderTopWidth: 0 },
-            tabBarActiveTintColor: Theme.primaryColor,
-            tabBarInactiveTintColor: Theme.tertiaryColor,
+            tabBarActiveTintColor: Theme.TabBar.iconActive,
+            tabBarInactiveTintColor: Theme.TabBar.iconInactive,
             tabBarShowLabel: false,
           })}>
             <Tab.Screen name="HomeTab" component={ProfileStack} options={{title:'Home'}}/>

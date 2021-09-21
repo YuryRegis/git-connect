@@ -12,6 +12,12 @@ export const theme = {
         senary: '#ccb220',
     },
 
+    // TabBar Navigation
+    TabBar: {
+        iconActive: '#A370F7',
+        iconInactive: '#6B6C6F',
+    },
+
     // Search & Filter
     search: {
         inputColor: '#eee',
