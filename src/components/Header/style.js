@@ -33,6 +33,8 @@ export const LogoLabelStrong = styled.Text`
     font-size: 19px;
     font-family: 'roboto-regular';
 
+    margin-right: ${({padding})=>padding?16:0}px;
+
     color: ${Theme.primaryColor};
 `
 

@@ -77,8 +77,8 @@ export function TabNav (props) {
             tabBarInactiveTintColor: Theme.TabBar.iconInactive,
             tabBarShowLabel: false,
           })}>
-            <Tab.Screen name="HomeTab" component={Home} options={{title:'Home'}}/>
-            <Tab.Screen name="SearchTab" component={SearchStack} options={{title:'Search'}}/>
+            <Tab.Screen name="HomeTab" component={Home} options={{title:'Home'}} {...props}/>
+            <Tab.Screen name="SearchTab" component={SearchStack} options={{title:'Search'}} {...props}/>
             <Tab.Screen name="ProfileTab" component={ProfileStack} options={{title:'Profile'}}/>
             <Tab.Screen name="ChatTab" component={MessageStack} options={{title:'Chat'}}/>
         </Tab.Navigator>

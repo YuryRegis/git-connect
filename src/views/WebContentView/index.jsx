@@ -7,7 +7,7 @@ import HeaderNav from '../../components/HeaderNav'
 export function WebView({source, ...rest}) {
     return (
         <styled.container>
-            <HeaderNav {...rest}/>
+            <HeaderNav screenNav='Repository' {...rest}/>
 
             <styled.WebViewContent
                 source={{uri: source}}

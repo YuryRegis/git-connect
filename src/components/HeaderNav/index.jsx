@@ -5,12 +5,21 @@ import {TouchableOpacity} from 'react-native'
 
 function HeaderNav(props){
 
-    function goBackHandler(){
+    function goBackHandler() {
         return props.navigation.goBack()
     }
 
-    function goChatHandler(){
+    function goChatHandler() {
         return props.navigation.navigate('ChatTab')
+    }
+
+    function PageName({thin, strong}) {
+        return (
+            <styled.LogoTextContainer>
+                    <styled.LogoLabelThin>{thin}</styled.LogoLabelThin>
+                    <styled.LogoLabelStrong>{strong}</styled.LogoLabelStrong>
+            </styled.LogoTextContainer>
+        )
     }
 
     return (
@@ -21,9 +30,27 @@ function HeaderNav(props){
                 <styled.Icon size={23} name='chevron-back'/> 
             </TouchableOpacity>
             
-            <TouchableOpacity onPress={()=>goChatHandler()}>
-                <styled.Icon size={23} name='chatbubble-ellipses'/> 
-            </TouchableOpacity>
+            { props.chat && (
+                <TouchableOpacity onPress={()=>goChatHandler()}>
+                    <styled.Icon size={23} name='chatbubble-ellipses'/> 
+                </TouchableOpacity>
+            )}
+            
+            {/* { props.screenNav && (
+                <PageName thin='all' strong='Repos' />
+            )} */}
+
+            {/* { props.screenNav && (
+                <PageName thin='all' strong='Followers' />
+            )} */}
+
+            { props.screenNav==='Repository' && (
+                <PageName thin='git' strong='Repo' />
+            )}
+ 
+            { props.screenNav==='Conversation' && (
+                <PageName thin={props.user?.userName?.split(' ')[0]} strong='Chat' />
+            )}
         
           </styled.RowContainer>
         </styled.Container>

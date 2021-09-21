@@ -52,7 +52,7 @@ export function Chat({navigation}) {
 
     return (
         <styled.Container>
-            <Header />
+            <Header screenTab='ChatTab'/>
 
             <FlatList 
                 data={Messages}

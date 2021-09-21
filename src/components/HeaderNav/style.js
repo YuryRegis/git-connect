@@ -33,3 +33,24 @@ export const Icon = styled(Ionicons)`
     height: ${({size}) => size}px;
     color: ${Theme.Header.tertiary};
 `
+
+export const LogoTextContainer = styled.View`
+    flex-direction: row;
+    color: ${Theme.primaryColor};
+`
+
+export const LogoLabelStrong = styled.Text`
+    font-size: 19px;
+    font-family: 'roboto-regular';
+
+    margin-right: ${({padding})=>padding?16:0}px;
+
+    color: ${Theme.primaryColor};
+`
+
+export const LogoLabelThin = styled.Text`
+    font-size: 19px;
+    font-family: 'roboto-thin';
+
+    color: ${Theme.primaryColor};
+`

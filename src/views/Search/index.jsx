@@ -55,7 +55,7 @@ export function Search(props) {
 
     return (
         <styled.Container>
-            <Header />
+            <Header screenTab='SearchTab'/>
             
             <styled.RowContainer>
 

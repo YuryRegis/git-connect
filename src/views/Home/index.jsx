@@ -92,7 +92,7 @@ export function Home() {
   return (
     <styled.Container>
         
-        <Header />
+        <Header screenTab='HomeTab'/>
 
         <styled.Container>
         { isLoading 

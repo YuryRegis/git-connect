@@ -93,7 +93,7 @@ export function Conversation(props) {
     return (
         <styled.Container>
 
-            <HeaderNav {...props}/>
+            <HeaderNav screenNav='Conversation' user={chatUser} {...props}/>
 
             {Platform.OS === "android" && <KeyboardAvoidingView behavior="padding" />}
 
