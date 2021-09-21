@@ -9,13 +9,15 @@ import Messages from "./data"
 
 export function Chat({navigation}) {
 
-    function onPressCardHandler() {
-        navigation.push('Conversation')
-    }
-    
     function FlatListHandler({item}) {
         const username = item.userName.split(' ')
         // console.log('Message -> ', item.message)
+        
+        function onPressCardHandler() {
+            const navProps = { chatUser: item } 
+            navigation.push('Conversation', navProps)
+        }
+        
         return (
             <styled.CardContainer onPress={onPressCardHandler}>
                 <styled.UserInfo>

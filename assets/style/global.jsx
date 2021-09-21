@@ -47,6 +47,15 @@ export const theme = {
         primaryColor: '#202322',
     },
 
+    // Chat InputToolBar
+    chatInputToolBar: {
+        color: '#202322',
+        borderColor: '#A370F7',
+        sendButtonColor: '#A370F7',
+        placeholderColor: '#707478',
+        textColor: '#a1a1a1',
+    },
+
     // Icons Languages
     SVG: {
         icon: {color: '#eee'},
