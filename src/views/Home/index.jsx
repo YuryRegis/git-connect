@@ -1,5 +1,7 @@
 import React from 'react'
 import * as styled from './style'
+import * as aux from '../../utils'
+import { FlatList } from 'react-native'
 import Header from '../../components/Header'
 import Languages from '../../../assets/icons'
 import { ActivityIndicator } from 'react-native'
@@ -7,10 +9,11 @@ import MaskedGradient from '../../components/MaskedGradient'
 
 
 const trending = require('trending-github')
+const text = 'OWASP Juice Shop: Probably the most modern and sophisticated insecure web application teste de carcateres para ver o tamanho maximo...'
 
 function Logo({language, color, size}) {
-    const Icon = Languages[language].icon
-    return ( <Icon color={color} height={size} width={size}/> )
+    const Icon = Languages[language]?.icon || Languages['Default']?.icon
+    return  <Icon color={color} height={size} width={size}/> 
 }
 
 export function Home() {
@@ -18,13 +21,13 @@ export function Home() {
   const [data, setData] = React.useState('')
   
   React.useEffect(() => {
-    // setIsLoading(true)
+    setIsLoading(true)
     async function fetchFeed() {
         try {
             const feed = await trending('today', '')
             // console.log(feed)
             setData(feed)
-            // setIsLoading(false)
+            setIsLoading(false)
         } catch (error) {
             console.log(error)
         }
@@ -40,30 +43,30 @@ export function Home() {
       )
   }
 
-  function Card(props) {
+  function Card({item}) {
       return (
         <styled.CardContainer> 
             
             <styled.CardHeader>
 
-                <styled.Author>juice-shop</styled.Author>
+                <styled.Author>{item.author}</styled.Author>
 
                 <styled.RowContent direction='right'>
                     <styled.Icon name='star-outline' size={15} color={styled.StarIconColor} />
-                    <styled.Counter>3624</styled.Counter>
+                    <styled.Counter>{item.stars}</styled.Counter>
                     <styled.Icon name='git-branch' size={15} color={styled.ForkIconColor} />
-                    <styled.Counter>3624</styled.Counter>
+                    <styled.Counter>{item.forks}</styled.Counter>
                 </styled.RowContent>
 
             </styled.CardHeader>
 
-            <styled.RowContent>
+            <styled.RowContent >
 
                 <styled.Logo>
-                    <MaskedGradient size={{h:130, w:130}}>
-                        <Logo language='Python' size={130}/>
+                    <MaskedGradient size={{h:100, w:100}}>
+                        <Logo language={item.language} size={100}/>
                     </MaskedGradient>
-                    <styled.ProjectName>DiscordBot</styled.ProjectName>
+                    <styled.ProjectName>{item.name}</styled.ProjectName>
                 </styled.Logo>
 
                 <styled.InfoContainer>
@@ -71,13 +74,13 @@ export function Home() {
                     <styled.InfoContent>
 
                         <styled.InfoTitle>Descrição</styled.InfoTitle>
-                        <styled.InfoDescription>OWASP Juice Shop: Probably the most modern and sophisticated insecure web application</styled.InfoDescription>
+                        <styled.InfoDescription>{aux.truncateText(item.description)}</styled.InfoDescription>
 
                         <styled.InfoTitle>Linguagem</styled.InfoTitle>
-                        <styled.InfoDescription>Python</styled.InfoDescription>
+                        <styled.InfoDescription>{item.language || '?'}</styled.InfoDescription>
 
                     </styled.InfoContent>
-                    
+
                 </styled.InfoContainer>
 
             </styled.RowContent>
@@ -94,7 +97,11 @@ export function Home() {
         <styled.Container>
         { isLoading 
             ? <ActivityRender />
-            : <Card /> }
+            : <FlatList 
+                data={data}
+                renderItem={Card} 
+                keyExtractor={(item,index) => `${item.author}_${index}`}
+        /> }
         </styled.Container>
 
     </styled.Container>

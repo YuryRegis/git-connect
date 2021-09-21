@@ -20,17 +20,20 @@ export const ActivityContent = styled.View`
 `
 
 export const CardContainer = styled.View`
-    width: 100%;
-    
-    border-radius: 9px;
-    border-width: 1.3px;
+    /* width: 100%; */
+
+    border-radius: 5px;
+    border-bottom-width: 1.3px;
     border-color: ${Theme.feedCard.border};
 
+    margin: 0 8px 9px 8px;
     padding: 9px 16px 9px 16px;
     background-color: ${Theme.feedCard.background};
 `
 
 export const CardHeader = styled.View`
+    margin-bottom: 9px;
+
     flex-direction: row;
     justify-content: space-between;
 `

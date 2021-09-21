@@ -1,5 +1,12 @@
 // Utilities
 
+export function truncateText(text, limit=130) {
+  if (text.length > limit) {
+    return text.substring(0, limit) + '...';
+  }
+  return text;
+}
+
 export function sortReposByStars(repos) {
     return repos.sort((a, b) => {return b.stargazers_count - a.stargazers_count})
   }

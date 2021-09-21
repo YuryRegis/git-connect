@@ -15,7 +15,7 @@ export const theme = {
     // FeedCard
     feedCard: {
         background: '#151619',
-        border: '#A370F7',
+        border: '#6B6C6F',
         title: '#eee',
         description: '#eee',
         project: '#A370F7',
