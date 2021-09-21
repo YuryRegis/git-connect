@@ -12,6 +12,14 @@ export const theme = {
         senary: '#ccb220',
     },
 
+    // Search & Filter
+    search: {
+        inputColor: '#eee',
+        iconColor: '#1adc20',
+        borderColor: '#A370F7',
+        placeholderColor: '#B9B9B9',
+    }, 
+
     // Activity Indicator
     activityIndicator: {
         primary: '#A370F7',

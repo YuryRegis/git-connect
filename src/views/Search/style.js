@@ -14,7 +14,7 @@ export const Picker = {
     marginLeft: 16,
     borderWidth: 1,
     borderRadius: 25,
-    borderColor: `${Theme.primaryColor}`,
+    borderColor: `${Theme.search.borderColor}`,
 
     fontFamily: 'roboto-thin',
     color: `${Theme.primaryColor}`,
@@ -22,7 +22,7 @@ export const Picker = {
 
 export const PickerContainer = styled.View`
     border-width: ${isAndroid ? '1px' : 0};
-    border-color: ${isAndroid ? Theme.primaryColor : 'transparent'};
+    border-color: ${isAndroid ? Theme.search.borderColor : 'transparent'};
     border-radius: ${isAndroid ? '25px' : 0};
     
     flex-direction: row;
@@ -81,7 +81,7 @@ export const Input = styled.TextInput`
 
     border-width: 1px;
     border-radius: 25px;
-    border-color: ${Theme.primaryColor};
+    border-color: ${Theme.search.borderColor};
 `
 
 export const Button = styled.TouchableOpacity`
@@ -97,7 +97,7 @@ export const SearchButton = styled.TouchableOpacity`
 `
 
 export const Icon = styled(Ionicons)`
-    color: ${({isBlack}) => isBlack ? 'black' : Theme.primaryColor};
+    color: ${({isBlack}) => isBlack ? 'black' : Theme.search.iconColor};
 `
 
 export const SearchContent = styled.View`
