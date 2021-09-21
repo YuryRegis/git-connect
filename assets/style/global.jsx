@@ -49,7 +49,7 @@ export const theme = {
         text: {
             color: '#FFF',
             linkColor: '#01CDFA',
-            logoutColor: '#EF7171',
+            logoutColor: '#ff0101',
             size: 17
         },
         primaryColor: '#8D44AD',
