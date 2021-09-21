@@ -1,131 +1,95 @@
-import styled from "styled-components/native" 
-import Theme from "../../../assets/style/global"
-import Ionicons from "react-native-vector-icons/Ionicons"
+import styled from 'styled-components/native'
+import Theme from '../../../assets/style/global'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 
-export const Container = styled.View` 
+export const ActivityIndicatorColor = Theme.activityIndicator.primary
+export const StarIconColor = Theme.feedCard.star
+export const ForkIconColor = Theme.feedCard.fork
+
+export const Container = styled.View`
     flex: 1;
     background-color: ${Theme.background};
-    
-    align-items: center;
-    /* justify-content: center; */
 `
 
-export const RowContainer = styled.View`
-    margin-top: 16px;
-    flex-direction: row;
-`
-
-export const UserName = styled.Text`
-    color: ${Theme.primaryColor};
-    font-size: ${Theme.font.size}px;
-    font-family: 'roboto-regular';
-`
-
-export const UserLastName = styled.Text`
-    color: ${Theme.primaryColor};
-    font-size: ${Theme.font.size}px;
-    font-family: 'roboto-light';
-`
-
-export const Company = styled.Text`
-    color: ${Theme.primaryColor};
-    font-size: ${Theme.font.size}px;
-    font-family: 'roboto-thin';
-`
-
-export const TopProjectsContainer = styled.View`
-    border-radius: 3px;
-    margin: 16px 16px 0 16px;
-    padding: 8px;
-    width: 95%;
-
-    background-color: ${Theme.topProjectsContainer.primaryColor}; 
-`
-
-export const Title = styled.Text`
-    font-size: ${Theme.font.size}px;
-    color: ${Theme.primaryColor};
-    margin-left: 8px;
-
-    text-transform: capitalize;
-`
-
-export const AlignedContainer = styled.View`
+export const ActivityContent = styled.View`
     flex: 1;
-    align-items: center;
+
     justify-content: center;
+    align-items: center;
 `
 
-export const RollFlatContainer = styled.View`
-    justify-content: space-between;
-    flex-direction: row;
-    padding-right: 8px;
-`
-
-export const RightContent = styled.View`
-    flex-direction: row;
-`
-export const LeftContent = styled.Text`
-    padding: 8px 0 0 8px;
-
-    font-size: 10px;
-    /* font-weight: normal; */
-    font-family: 'roboto-light';
-    color: ${Theme.primaryColor};
-`
-
-export const ElementContainer = styled.View`
-    padding: 8px 5px 0 0;
-    flex-direction: row;
-`
-
-export const Icons = styled(Ionicons)`
-    color: ${Theme.primaryColor};
-`
-
-export const FlatTextElement = styled.Text`
-    font-size: 10px;
-    margin-left: 2px;
-    color: ${Theme.primaryColor};
-`
-
-export const FlatElementTitle = styled.Text`
-    padding: 5px 8px 8px 8px;
-    text-transform: uppercase;
+export const CardContainer = styled.View`
+    width: 100%;
     
-    font-size: ${Theme.font.size}px;
+    border-radius: 9px;
+    border-width: 1.3px;
+    border-color: ${Theme.feedCard.border};
+
+    padding: 9px 16px 9px 16px;
+    background-color: ${Theme.feedCard.background};
+`
+
+export const CardHeader = styled.View`
+    flex-direction: row;
+    justify-content: space-between;
+`
+
+export const RowContent = styled.View`
+    flex-direction: row;
+    justify-content: ${({direction}) => direction==='right' 
+        ? 'flex-end' : 'flex-start'};
+`
+
+export const Author = styled.Text`
+    font-size: 15px;
+    color: ${Theme.button.text.linkColor};
+`
+
+export const Icon = styled(Ionicons)`
+    margin-left: 4px;
+    color: ${({color}) => color ? color : Theme.primaryColor};
+`
+
+export const Counter = styled.Text`
+    font-size: 15px;
+    margin-left: 4px;
     color: ${Theme.primaryColor};
 `
 
-export const BioContainer = styled.View`
-    margin: 16px 16px 0 16px;
-    padding: 8px;
-
-    background-color: ${Theme.topProjectsContainer.primaryColor};
+export const Logo = styled.View`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
 `
 
-export const BioText = styled.Text`
-    margin: 8px 8px 0 8px;
-    padding-top: 8px;
-    color: ${Theme.primaryColor};
+export const ProjectName = styled.Text`
+    font-size: 15px;
+    margin-top: 4px;
+    color: ${Theme.feedCard.project};
+`
+
+export const InfoContainer = styled.View`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+`
+
+export const InfoContent = styled.View`
+    margin: 8px 0;
+`
+
+export const InfoDescription = styled.Text`
+    margin-top: 4px;
+
+    color: ${Theme.feedCard.description};
     font-size: ${Theme.font.size}px;
     font-family: 'roboto-thin';
-
-    border-top-width: .5px;
-    border-top-color: ${Theme.primaryColor};
 `
 
-export const ButtonContent = styled.View`
-    padding: 10px;
-    flex-direction: row;
-
-    align-items: center;
-`
-
-export const TextButton = styled.Text`
-    margin-right: 8px;
-    
-    font-size: 20px;
-    color: ${Theme.primaryColor};
+export const InfoTitle = styled.Text`
+    margin-top: 4px;
+    font-family: ${Theme.font.family};
+    font-size: ${Theme.font.size}px;
+    color: ${Theme.feedCard.title};
 `

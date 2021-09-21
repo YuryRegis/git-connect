@@ -12,6 +12,17 @@ export const theme = {
         senary: '#ccb220',
     },
 
+    // FeedCard
+    feedCard: {
+        background: '#151619',
+        border: '#A370F7',
+        title: '#eee',
+        description: '#eee',
+        project: '#A370F7',
+        star: '#C9FF56',
+        fork: '#1ADC19',
+    },
+
     // Header or HeaderNav
     Header: {
         primary: '#A370F7',

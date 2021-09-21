@@ -3,6 +3,8 @@ import Theme from "../../../assets/style/global"
 import Ionicons from "react-native-vector-icons/Ionicons"
 
 
+export const LogoIcon = styled(Ionicons)``
+
 export const Container = styled.View` 
     flex: 1;
     background-color: ${Theme.background};
@@ -36,25 +38,32 @@ export const Company = styled.Text`
 
 export const TopProjectsContainer = styled.View`
     border-radius: 3px;
+    border-width: 1.3px;
+    border-color: ${Theme.topProjectsContainer.borderColor};
+    
     margin: 16px 16px 0 16px;
     padding: 8px;
-    width: 95%;
 
     background-color: ${Theme.topProjectsContainer.primaryColor}; 
 `
 
+export const ProjectsContent = styled.View`
+    flex: 1;
+    width: 100%;
+    justify-content: center;
+`
+
 export const Title = styled.Text`
     font-size: ${Theme.font.size}px;
-    color: ${Theme.primaryColor};
-    margin-left: 8px;
+    color: ${Theme.topProjectsContainer.textTitleColor};
 
     text-transform: capitalize;
 `
 
-export const AlignedContainer = styled.View`
-    flex: 1;
-    align-items: center;
-    justify-content: center;
+export const scrollContainer = styled.View`
+    width: 100%;
+    height: 150px;
+    padding: 8px;
 `
 
 export const RollFlatContainer = styled.View`
@@ -75,57 +84,11 @@ export const LeftContent = styled.Text`
     color: ${Theme.primaryColor};
 `
 
-export const ElementContainer = styled.View`
-    padding: 8px 5px 0 0;
-    flex-direction: row;
-`
-
-export const Icons = styled(Ionicons)`
-    color: ${Theme.primaryColor};
-`
-
-export const FlatTextElement = styled.Text`
-    font-size: 10px;
-    margin-left: 2px;
-    color: ${Theme.primaryColor};
-`
-
 export const FlatElementTitle = styled.Text`
     padding: 5px 8px 8px 8px;
     text-transform: uppercase;
-    
+
+    font-family: 'roboto-light';
     font-size: ${Theme.font.size}px;
-    color: ${Theme.primaryColor};
-`
-
-export const BioContainer = styled.View`
-    margin: 16px 16px 0 16px;
-    padding: 8px;
-
-    background-color: ${Theme.topProjectsContainer.primaryColor};
-`
-
-export const BioText = styled.Text`
-    margin: 8px 8px 0 8px;
-    padding-top: 8px;
-    color: ${Theme.primaryColor};
-    font-size: ${Theme.font.size}px;
-    font-family: 'roboto-thin';
-
-    border-top-width: .5px;
-    border-top-color: ${Theme.primaryColor};
-`
-
-export const ButtonContent = styled.View`
-    padding: 10px;
-    flex-direction: row;
-
-    align-items: center;
-`
-
-export const TextButton = styled.Text`
-    margin-right: 8px;
-    
-    font-size: 20px;
     color: ${Theme.primaryColor};
 `

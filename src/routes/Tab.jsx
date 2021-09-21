@@ -11,6 +11,7 @@ import Search from '../views/Search'
 import Profile from '../views/Profile'
 import WebContent from '../views/WebContentView'
 import Conversation from '../views/Conversation'
+import FollowProfile from '../views/FollowProfile'
 
 
 function MessageStack({navigation}) {
@@ -37,9 +38,9 @@ function ProfileStack() {
   const Stack = createStackNavigator()
   return (
     <Stack.Navigator>
-      <Stack.Screen name="ProfileStack" component={Home} options={{ headerShown: false }} />
+      <Stack.Screen name="ProfileStack" component={Profile} options={{ headerShown: false }} />
       <Stack.Screen name="WebContent" component={WebContent} options={{ headerShown: false }} />
-      <Stack.Screen name="FollowerProfile" component={Profile} options={{ headerShown: false }} />
+      <Stack.Screen name="FollowerProfile" component={FollowProfile} options={{ headerShown: false }} />
     </Stack.Navigator>
   )
 }
@@ -76,7 +77,7 @@ export function TabNav (props) {
             tabBarInactiveTintColor: Theme.TabBar.iconInactive,
             tabBarShowLabel: false,
           })}>
-            <Tab.Screen name="HomeTab" component={ProfileStack} options={{title:'Home'}}/>
+            <Tab.Screen name="HomeTab" component={Home} options={{title:'Home'}}/>
             <Tab.Screen name="SearchTab" component={SearchStack} options={{title:'Search'}}/>
             <Tab.Screen name="ProfileTab" component={ProfileStack} options={{title:'Profile'}}/>
             <Tab.Screen name="ChatTab" component={MessageStack} options={{title:'Chat'}}/>

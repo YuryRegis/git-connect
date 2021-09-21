@@ -9,13 +9,19 @@ const GitApi = axios.create({
     try {
         const response = await GitApi({
             method: 'get',
-            url: url
+            url: url,
+
         })
         return response
     } catch ({response}) {
         console.log(`Error(${response.status}) =>`, response.data.message)
         return response
     }
+}
+
+ export async function getFeed() {
+    const response = await Get('https://private-anon-f5cd8f9452-githubtrendingapi.apiary-proxy.com/repositories')
+    console.log(response.data)
 }
 
  export async function searchRepos({search, language, page=1}) {

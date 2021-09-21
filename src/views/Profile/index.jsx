@@ -1,118 +1,79 @@
-import * as api from '../../api'
+import React from 'react'
 import * as styled from './style'
-import { ActivityIndicator } from 'react-native'
-import { useRoute } from '@react-navigation/core'
+import { connect } from 'react-redux'
 import User from '../../../assets/img/Elliot.jpg'
-import React, { useState, useEffect } from 'react'
-import HeaderNav from '../../components/HeaderNav/index'
+import Header from '../../components/Header/index'
 import FollowersList from '../../components/FollowersList'
-import GradientCards from '../../components/GradientCards'
-import MaskedGradient from '../../components/MaskedGradient'
+import FollowingList from '../../components/FollowingList'
+import {setUrlWebView} from '../../store/actions/urlSource'
+import GradientButton from '../../components/GradientButton'
 import TechnologiesList from '../../components/TechnologiesList'
 import UserProfilePhoto from '../../components/UserProfilePhoto'
-import DefaultIconProfile from '../../components/DefaultIconProfile'
 
 import Data from './data'
 import * as Aux from './aux'
-import { FlatList } from 'react-native-gesture-handler'
-import RepoCounters from '../../components/RepoCounters'
 
 
-function Profile({navigation,...rest}) {
-  const [isLoading, setIsLoading] = useState(false)
-  const [userData, setUserData] = useState({})
-  const [userRepos, setUserRepos] = useState([])
-  const [topProjects, setTopProjects] = useState([])
-
-  const route = useRoute()
-  const { userName } = route.params
+function Home({user, navigation, onRedirect, ...rest}) {
   
-  
-  useEffect(() => {
-    async function fetchData() {
-      setIsLoading(true)
-      const userInfo = await api.getUserInfo(userName)
-      setUserData(() => userInfo.data)
-      const repos = await api.getUserRepos(userName)
-      const Repositories = Aux.getMostPopularRepos(repos.data, 5)
-      setUserRepos(() => repos.data)
-      setTopProjects(() => Repositories)
-      setIsLoading(false)
-    }
-    fetchData()
-  }, [])
-
-  function FlatListHandler({item}) {
-    return (
-      <GradientCards key={`${item.id}`}>
-        <styled.RollFlatContainer key={`Row${item.id}`}>
-          
-          <styled.LeftContent>
-            {item.language}
-          </styled.LeftContent>
-          
-          <styled.RightContent>
-            <RepoCounters repo={item} />
-          </styled.RightContent>
-        </styled.RollFlatContainer> 
-
-        <styled.FlatElementTitle>
-          {item.name}
-        </styled.FlatElementTitle> 
-      </GradientCards>
-    )
+  function gradientButtonHandler() {
+    onRedirect(user.gitHubUrl)
+    return navigation.navigate('WebContent')
   }
-
 
   return (
     <React.Fragment>
-      <HeaderNav navigation={navigation} {...rest}/>
-      <styled.Container> 
+      <Header logout {...rest}/>
+      <styled.Container>
 
-        {isLoading ? (
-          <DefaultIconProfile size={150} />
-        ) : (
-          <UserProfilePhoto source={{uri:userData.avatar_url}} height={150} width={150}/>
-        )}
+        <UserProfilePhoto source={{uri: user.avatarUrl}} height={150} width={150}/>
         
         <styled.RowContainer>
-
-          <styled.UserName> {
-            isLoading ? 'Name' : userData.name?.split(' ')[0]
-          } </styled.UserName>
-
-          <styled.UserLastName> {
-            isLoading ? 'LastName' : (userData.name?.split(' ')[1] || userData.login) 
-          } </styled.UserLastName> 
-
+          <styled.UserName> {user.name} </styled.UserName>
+          <styled.UserLastName> {user.login} </styled.UserLastName>
         </styled.RowContainer>
         
-        <styled.Company> {
-          isLoading ? 'Loading info...' : (userData.company || 'User without company info') 
-          } </styled.Company>
+        <styled.Company> {user.company} </styled.Company>
 
-        <FollowersList data={{repositories: userRepos}} navigate={navigation.push}/>
+        <styled.BioContainer>
+          <styled.Title> Bio </styled.Title>
+          <styled.BioText>{user.bio}</styled.BioText>
+        </styled.BioContainer>
 
-        <TechnologiesList repositories={userRepos} navigate={navigation.push}/>
+        <FollowersList navigate={navigation.push}/>
 
-        <styled.ProjectsContent>
-          <styled.TopProjectsContainer>
-            <styled.Title> Top Projects </styled.Title>
+        {/* <TechnologiesList /> */}
 
-            <styled.scrollContainer>
-              <FlatList
-                keyExtractor={(Repositories) => String(Repositories.id)}
-                renderItem={FlatListHandler}
-                data={topProjects}
-              />
-            </styled.scrollContainer>
-
-          </styled.TopProjectsContainer>
-        </styled.ProjectsContent>
+        <FollowingList navigation={navigation}/>
         
+        <styled.AlignedContainer>
+          <GradientButton onPress={gradientButtonHandler}>
+            <styled.ButtonContent>
+
+              <styled.TextButton> Editar perfil no GitHub </styled.TextButton>
+              
+              <styled.Icons size={32} name='logo-github'/>
+
+            </styled.ButtonContent>
+          </GradientButton>
+        </styled.AlignedContainer>
+
       </styled.Container>
     </React.Fragment>
   )
 }
 
-export default Profile
+function mapDispatchToProps(dispatch) {
+  return {
+    onRedirect: url => dispatch(setUrlWebView(url))
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    user: state.user
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
