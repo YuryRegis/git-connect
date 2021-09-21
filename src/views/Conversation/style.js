@@ -6,22 +6,32 @@ import { YellowBox } from "react-native"
 
 export const RightBubble = {
     backgroundColor: Theme.gradient.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 50,
-    padding: 3,
+    paddingTop: 5,
+    paddingRight: 10,
+    paddingLeft: 10,
+    paddingBottom: 5,
     text: {
         color: Theme.primaryColor,
-        font: Theme.font.family
+        font: 'roboto-light'
     }
 }
 
 export const LeftBubble = {
     // backgroundColor: Theme.gradient.secondary,
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: '#292929',
     borderRadius: 50,
-    padding: 3,
+    paddingTop: 5,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingBottom: 5,
     text: {
         color: Theme.primaryColor,
-        font: Theme.font.family
+        font: 'roboto-light'
     }
 }
 
