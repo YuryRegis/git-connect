@@ -31,5 +31,5 @@ export const ChatButton = styled.TouchableOpacity`
 export const Icon = styled(Ionicons)`
     width: ${({size}) => size}px;
     height: ${({size}) => size}px;
-    color: ${Theme.primaryColor};
+    color: ${Theme.Header.tertiary};
 `

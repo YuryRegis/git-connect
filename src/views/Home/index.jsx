@@ -15,7 +15,6 @@ import * as Aux from './aux'
 
 
 function Home({user, navigation, onRedirect, ...rest}) {
-  console.log('Home Nav -> ', navigation)
   
   function gradientButtonHandler() {
     onRedirect(user.gitHubUrl)

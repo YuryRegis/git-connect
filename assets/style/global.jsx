@@ -12,6 +12,13 @@ export const theme = {
         senary: '#ccb220',
     },
 
+    // Header or HeaderNav
+    Header: {
+        primary: '#A370F7',
+        secondary: '#1ADC19',
+        tertiary: '#EEE', 
+    },
+
     // TabBar Navigation
     TabBar: {
         iconActive: '#A370F7',
@@ -58,7 +65,9 @@ export const theme = {
 
     // Projects Container
     topProjectsContainer: {
-        primaryColor: '#202322',
+        primaryColor: '#121312',
+        borderColor: '#A370F7',
+        textTitleColor: '#1ADC19',
     },
 
     // Chat InputToolBar

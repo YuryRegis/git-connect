@@ -38,6 +38,9 @@ export const Company = styled.Text`
 
 export const TopProjectsContainer = styled.View`
     border-radius: 3px;
+    border-width: 1.3px;
+    border-color: ${Theme.topProjectsContainer.borderColor};
+    
     margin: 16px 16px 0 16px;
     padding: 8px;
 
@@ -52,7 +55,7 @@ export const ProjectsContent = styled.View`
 
 export const Title = styled.Text`
     font-size: ${Theme.font.size}px;
-    color: ${Theme.primaryColor};
+    color: ${Theme.topProjectsContainer.textTitleColor};
 
     text-transform: capitalize;
 `
