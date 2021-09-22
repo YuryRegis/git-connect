@@ -20,7 +20,7 @@ export function Conversation(props) {
     setMessages([
       {
         _id: 1,
-        text: chatUser.message,
+        text: chatUser.messages,
         createdAt: new Date(),
         user: {
           _id: 2,
