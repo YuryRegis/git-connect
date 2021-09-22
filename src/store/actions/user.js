@@ -1,6 +1,7 @@
 import * as api from '../../api'
 import {ToastAndroid} from 'react-native'
-import {LOGIN, LOGOUT, SET_LOADING, SET_AUTH} from './types'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import {LOGIN, LOGOUT, SET_LOADING, SET_AUTH, SET_USER_CHAT} from './types'
 import {SET_USER_REPOS, SET_USER_FOLLOWERS, SET_USER_FOLLOWING} from '../actions/types'
 
 
@@ -29,6 +30,11 @@ export function login(user) {
     const userFollowing = await api.getUserFollowing(user.login)
     await dispatch({ type: SET_USER_FOLLOWING, payload: {following: {nodes: userFollowing}} })
 
+    // chat
+    const chat = await AsyncStorage.getItem(String(userData.data.id))
+    if(chat)
+      await dispatch({ type: SET_USER_CHAT, payload: {chat: JSON.parse(chat)} })
+  
     await dispatch({ type: SET_LOADING, payload: {isLoading: false} })
     await dispatch({ type: SET_AUTH, payload: {isAuthenticated: true} })
   }

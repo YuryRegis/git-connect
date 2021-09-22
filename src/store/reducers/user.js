@@ -1,5 +1,6 @@
-import {LOGIN, LOGOUT, SET_LOADING, SET_AUTH} from '../actions/types'
 import {SET_USER_REPOS, SET_USER_FOLLOWERS, SET_USER_FOLLOWING} from '../actions/types'
+import {LOGIN, LOGOUT, SET_LOADING, SET_AUTH, SET_USER_CHAT} from '../actions/types'
+import initialMessagesData from '../../views/Chat/data'
 
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
     blog: null,
     location: null,
     bio: null,
+    messages: [...initialMessagesData],
     repos: {
         totalCount: null,
         nodes: [],
@@ -40,6 +42,11 @@ function Reducer(state=initialState, action) {
             return {
                 ...state,
                 isLoading: action.payload.isLoading
+            }
+        case SET_USER_CHAT:
+            return {
+                ...state,
+                messages: [...action.payload.chat]
             }
         case SET_USER_REPOS:
             return {

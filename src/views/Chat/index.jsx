@@ -4,10 +4,15 @@ import { connect } from "react-redux"
 import { FlatList } from "react-native"
 import Header from "../../components/Header"
 
-import Messages from "./data"
-'#202020'
 
-export function Chat({navigation}) {
+export function Chat({user, navigation}) {
+    const [messages, setMessages] = React.useState([])
+
+    React.useEffect(() => {
+        const userChat = user.messages
+        setMessages(userChat)
+    }, [])
+
 
     function FlatListHandler({item}) {
         const username = item.userName.split(' ')
@@ -41,7 +46,7 @@ export function Chat({navigation}) {
 
                         </styled.UserInfoText>
                         
-                        <styled.MessageText>{item.message}</styled.MessageText>
+                        <styled.MessageText>{item.messages[0]}</styled.MessageText>
 
                     </styled.TextSection>
 
@@ -55,7 +60,7 @@ export function Chat({navigation}) {
             <Header screenTab='ChatTab'/>
 
             <FlatList 
-                data={Messages}
+                data={messages}
                 keyExtractor={(item) => String(item.id)}
                 renderItem={FlatListHandler}
             />
@@ -64,6 +69,10 @@ export function Chat({navigation}) {
     )
 }
 
+function mapStateToProps(state) {
+    return {
+        user: state.user
+    }
+}
 
-
-export default connect(null,null)(Chat)
+export default connect(mapStateToProps,null)(Chat)
