@@ -21,6 +21,10 @@ function FollowingList({userFollowing, navigate}) {
     )
   }
 
+  function seeAllButtonHandler() {
+    navigate('AllUserFollowing', {data: userFollowing, origin: 'AllUserFollowing'})
+  }
+
   return (
     <styled.Container>
 
@@ -30,7 +34,7 @@ function FollowingList({userFollowing, navigate}) {
                 <styled.UserCounter> ({userFollowing.length}) </styled.UserCounter>
             </styled.RowContainer>
 
-            <styled.SeeAllButton> 
+            <styled.SeeAllButton onPress={seeAllButtonHandler}> 
                 <styled.SeeAllText> Ver todos </styled.SeeAllText>
             </styled.SeeAllButton>
         </styled.RowContainer>

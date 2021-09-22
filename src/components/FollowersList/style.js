@@ -65,5 +65,8 @@ export const AvatarButton = styled.TouchableOpacity`
 export const Avatar = styled.Image`
     width: 60px;    
     height: 60px;
+
+    border-width: 1.5px;
     border-radius: 30px;
+    border-color: ${Theme.gradient.quinary};
 `

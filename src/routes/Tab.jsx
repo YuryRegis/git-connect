@@ -12,6 +12,7 @@ import Profile from '../views/Profile'
 import WebContent from '../views/WebContentView'
 import Conversation from '../views/Conversation'
 import FollowProfile from '../views/FollowProfile'
+import AllUserFollowing from '../views/AllUserFollowing'
 
 
 function MessageStack({navigation}) {
@@ -41,6 +42,7 @@ function ProfileStack() {
       <Stack.Screen name="ProfileStack" component={Profile} options={{ headerShown: false }} />
       <Stack.Screen name="WebContent" component={WebContent} options={{ headerShown: false }} />
       <Stack.Screen name="FollowerProfile" component={FollowProfile} options={{ headerShown: false }} />
+      <Stack.Screen name="AllUserFollowing" component={AllUserFollowing} options={{ headerShown: false }} />
     </Stack.Navigator>
   )
 }

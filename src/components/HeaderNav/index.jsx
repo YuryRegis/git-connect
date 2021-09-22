@@ -36,13 +36,17 @@ function HeaderNav(props){
                 </TouchableOpacity>
             )}
             
-            {/* { props.screenNav && (
-                <PageName thin='all' strong='Repos' />
-            )} */}
-
-            {/* { props.screenNav && (
+            {/* { props.screenNav==='AllUserFollowers' && (
                 <PageName thin='all' strong='Followers' />
             )} */}
+
+            { props.screenNav==='AllUserFollowing' && (
+                <PageName thin='all' strong='Following' />
+            )}
+
+            { props.screenNav==='AllUserFollowers' && (
+                <PageName thin='all' strong='Followers' />
+            )}
 
             { props.screenNav==='Repository' && (
                 <PageName thin='git' strong='Repo' />

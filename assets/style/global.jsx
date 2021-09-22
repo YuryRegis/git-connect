@@ -10,6 +10,14 @@ export const theme = {
         quaternary: '#d10cb7',
         quinary: '#A370F7',
         senary: '#ccb220',
+        septenary: '#1ADC19',
+    },
+
+    // User Card 
+    userCard: {
+        background: '#010714',
+        text: '#1ADC19',
+        border: '#A370F7',
     },
 
     // FeedCard
