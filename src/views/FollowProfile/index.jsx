@@ -91,7 +91,7 @@ function Profile({navigation,...rest}) {
           isLoading ? 'Loading info...' : (userData.company || 'User without company info') 
           } </styled.Company>
 
-        <FollowersList data={{repositories: userRepos}} navigate={navigation.push}/>
+        <FollowersList data={{origin: userData?.login}} navigate={navigation.push}/>
 
         <TechnologiesList repositories={userRepos} navigate={navigation.push}/>
 

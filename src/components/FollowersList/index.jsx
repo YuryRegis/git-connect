@@ -8,27 +8,25 @@ import { FlatList, ActivityIndicator } from 'react-native'
 // import data from './data'
 
 
-function FollowersList({userFollowers, navigate}) {
-  const [followersData, setFollowersData] = useState([])
+function FollowersList({userFollowers, navigate, data}) {
+  const [followersData, setFollowersData] = useState([...userFollowers])
   const [topFollowers, setTopFollowers] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   
   const route = useRoute()
-  const isUserProfile = route.name === 'ProfileStack'
-
   
   useEffect(() => { 
         async function fetchData() {
-        if (isUserProfile) {
+        if (!data) {
             const topFive = aux.FirstsFromArray(userFollowers, 5)
             setTopFollowers(() => topFive)
             return
         }
         const { userName } = route.params
         setIsLoading(true)
-        const data = await api.getUserFollowers(userName)
-        const topFive = aux.FirstsFromArray(data, 5)
-        setFollowersData(() => data)
+        const response = await api.getUserFollowers(userName)
+        const topFive = aux.FirstsFromArray(response, 5)
+        setFollowersData(() => response)
         setTopFollowers(() => topFive)
         setIsLoading(false)
     }
@@ -54,7 +52,7 @@ function FollowersList({userFollowers, navigate}) {
   }
 
   function seeAllButtonHandler() {
-        navigate('AllUserFollowing', {data: userFollowers, origin: 'AllUserFollowers'})
+        navigate('AllUserFollowing', {data: followersData, origin: 'AllUserFollowers'})
   }
 
   return (
@@ -64,12 +62,7 @@ function FollowersList({userFollowers, navigate}) {
             <styled.RowContainer>
 
                 <styled.Title> Seguidores </styled.Title>
-                
-                <styled.UserCounter> ({
-                    isUserProfile 
-                    ? userFollowers.length 
-                    : (isLoading ? ' ? ' : followersData.length)}) 
-                </styled.UserCounter>
+                <styled.UserCounter>{isLoading ? ' ? ' : followersData.length} </styled.UserCounter>
 
             </styled.RowContainer>
 
