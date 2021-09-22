@@ -22,11 +22,13 @@ export const ActivityContent = styled.View`
 export const CardContainer = styled.View`
     /* width: 100%; */
 
+    min-height: 200px;
+
     border-radius: 5px;
     border-bottom-width: 1.3px;
     border-color: ${Theme.feedCard.border};
 
-    margin: 0 8px 9px 8px;
+    margin: 0 8px 0px 8px;
     padding: 9px 16px 9px 16px;
     background-color: ${Theme.feedCard.background};
 `
@@ -40,8 +42,8 @@ export const CardHeader = styled.View`
 
 export const RowContent = styled.View`
     flex-direction: row;
-    justify-content: ${({direction}) => direction==='right' 
-        ? 'flex-end' : 'flex-start'};
+    justify-content: ${({justify}) => justify
+        ? justify : 'flex-start'};
 `
 
 export const Author = styled.Text`
@@ -62,6 +64,7 @@ export const Counter = styled.Text`
 
 export const Logo = styled.View`
     flex: 1;
+    width: 100px;
     justify-content: center;
     align-items: center;
 `
@@ -74,6 +77,7 @@ export const ProjectName = styled.Text`
 
 export const InfoContainer = styled.View`
     flex: 1;
+    width: 100%;
     justify-content: center;
     align-items: center;
 `
@@ -91,8 +95,30 @@ export const InfoDescription = styled.Text`
 `
 
 export const InfoTitle = styled.Text`
-    margin-top: 4px;
+    margin-top: 10px;
     font-family: ${Theme.font.family};
     font-size: ${Theme.font.size}px;
     color: ${Theme.feedCard.title};
 `
+
+export const LanguageView = styled.View`
+`
+
+export const GithubButton = styled.TouchableOpacity`
+    padding: 9px 7px;
+    border-radius: 9px;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+    margin-top: 15px;
+    margin-left: 10px;
+
+    background-color: ${Theme.gradient.primary};
+`
+
+export const GithubButtonText = styled.Text`
+    font-size: 13px;
+    color: #EEE;
+    font-family: 'roboto-bold';
+`
+

@@ -47,6 +47,15 @@ function ProfileStack() {
   )
 }
 
+function HomeStack() {
+  const Stack = createStackNavigator()
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="HomeStack" component={Home} options={{ headerShown: false }} />
+      <Stack.Screen name="WebContent" component={WebContent} options={{ headerShown: false }} />
+    </Stack.Navigator>
+  )
+}
 
 export function TabNav (props) {
     const Tab = createBottomTabNavigator()
@@ -79,7 +88,7 @@ export function TabNav (props) {
             tabBarInactiveTintColor: Theme.TabBar.iconInactive,
             tabBarShowLabel: false,
           })}>
-            <Tab.Screen name="HomeTab" component={Home} options={{title:'Home'}} {...props}/>
+            <Tab.Screen name="HomeTab" component={HomeStack} options={{title:'Home'}} {...props}/>
             <Tab.Screen name="SearchTab" component={SearchStack} options={{title:'Search'}} {...props}/>
             <Tab.Screen name="ProfileTab" component={ProfileStack} options={{title:'Profile'}}/>
             <Tab.Screen name="ChatTab" component={MessageStack} options={{title:'Chat'}}/>

@@ -1,11 +1,13 @@
 import React from 'react'
 import * as styled from './style'
 import * as aux from '../../utils'
+import { connect } from 'react-redux'
 import { FlatList } from 'react-native'
 import Header from '../../components/Header'
 import Languages from '../../../assets/icons'
 import { ActivityIndicator } from 'react-native'
 import MaskedGradient from '../../components/MaskedGradient'
+import { setUrlWebView } from '../../store/actions/urlSource'
 
 
 const trending = require('trending-github')
@@ -16,7 +18,7 @@ function Logo({language, color, size}) {
     return  <Icon color={color} height={size} width={size}/> 
 }
 
-export function Home() {
+export function Home({navigation, onRedirect}) {
   const [isLoading, setIsLoading] = React.useState(false)
   const [data, setData] = React.useState('')
   
@@ -44,6 +46,12 @@ export function Home() {
   }
 
   function Card({item}) {
+
+      function gitHubButtonHandler() {
+        onRedirect(item.href)
+        navigation.navigate('WebContent', { url: item.href })
+      }
+
       return (
         <styled.CardContainer> 
             
@@ -51,7 +59,7 @@ export function Home() {
 
                 <styled.Author>{item.author}</styled.Author>
 
-                <styled.RowContent direction='right'>
+                <styled.RowContent justify='flex-end'>
                     <styled.Icon name='star-outline' size={15} color={styled.StarIconColor} />
                     <styled.Counter>{item.stars}</styled.Counter>
                     <styled.Icon name='git-branch' size={15} color={styled.ForkIconColor} />
@@ -75,9 +83,22 @@ export function Home() {
 
                         <styled.InfoTitle>Descrição</styled.InfoTitle>
                         <styled.InfoDescription>{aux.truncateText(item.description)}</styled.InfoDescription>
+                        
+                        <styled.RowContent justify='space-between'>
 
-                        <styled.InfoTitle>Linguagem</styled.InfoTitle>
-                        <styled.InfoDescription>{item.language || '?'}</styled.InfoDescription>
+                            <styled.LanguageView>
+                                <styled.InfoTitle>Linguagem</styled.InfoTitle>
+                                <styled.InfoDescription>{item.language || '?'}</styled.InfoDescription>
+                            </styled.LanguageView>
+                
+                            <styled.GithubButton onPress={gitHubButtonHandler}>
+                                <styled.RowContent>
+                                    <styled.GithubButtonText>VISITAR</styled.GithubButtonText>
+                                    <styled.Icon name='logo-github' size={17} color="#EEE" />
+                                </styled.RowContent>
+                            </styled.GithubButton>   
+                    
+                        </styled.RowContent>
 
                     </styled.InfoContent>
 
@@ -108,4 +129,10 @@ export function Home() {
   )
 }
 
-export default Home
+function mapDispatchToProps(dispatch) {
+    return {
+      onRedirect: url => dispatch(setUrlWebView(url))
+    }
+  }
+
+export default connect(null,mapDispatchToProps)(Home)
