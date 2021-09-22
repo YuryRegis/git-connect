@@ -5,13 +5,13 @@ import { FlatList } from 'react-native'
 import data from './data'
 
 
-function FollowingList({userFollowing}) {
+function FollowingList({userFollowing, navigate}) {
   
   const topFollowing = userFollowing.slice(0, 5)
 
   function FlatListHandler({item}) {
     function onPressHandler() {
-        console.log(item.hml_url)
+        navigate('FollowerProfile', {userName: item.login})
     }
     return (
       <styled.AvatarButton onPress={onPressHandler} key={item.id} {...item}>

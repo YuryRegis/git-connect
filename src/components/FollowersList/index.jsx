@@ -30,7 +30,6 @@ function FollowersList({userFollowers, navigate}) {
         const topFive = aux.FirstsFromArray(data, 5)
         setFollowersData(() => data)
         setTopFollowers(() => topFive)
-        console.log(`UserProfile ${isUserProfile}: Data -> `, userName)
         setIsLoading(false)
     }
     fetchData()

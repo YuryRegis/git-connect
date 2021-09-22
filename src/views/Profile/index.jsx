@@ -44,7 +44,7 @@ function Home({user, navigation, onRedirect, ...rest}) {
 
         {/* <TechnologiesList /> */}
 
-        <FollowingList navigation={navigation}/>
+        <FollowingList navigate={navigation.push}/>
         
         <styled.AlignedContainer>
           <GradientButton onPress={gradientButtonHandler}>
