@@ -2,7 +2,6 @@ import React from 'react'
 import * as styled from './style'
 import {TouchableOpacity} from 'react-native'
 
-
 function HeaderNav(props){
 
     function goBackHandler() {
@@ -22,6 +21,7 @@ function HeaderNav(props){
         )
     }
 
+    
     return (
         <styled.Container>
           <styled.RowContainer>
@@ -36,9 +36,9 @@ function HeaderNav(props){
                 </TouchableOpacity>
             )}
             
-            {/* { props.screenNav==='AllUserFollowers' && (
-                <PageName thin='all' strong='Followers' />
-            )} */}
+            { props.screenNav==='ProjectsStack' && (
+                <PageName thin='user' strong='Projects' />
+            )}
 
             { props.screenNav==='AllUserFollowing' && (
                 <PageName thin='all' strong='Following' />

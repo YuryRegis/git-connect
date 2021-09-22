@@ -9,6 +9,7 @@ import Home from '../views/Home'
 import Chat from '../views/Chat'
 import Search from '../views/Search'
 import Profile from '../views/Profile'
+import UserProjects from '../views/UserProjects'
 import WebContent from '../views/WebContentView'
 import Conversation from '../views/Conversation'
 import FollowProfile from '../views/FollowProfile'
@@ -41,6 +42,7 @@ function ProfileStack() {
     <Stack.Navigator>
       <Stack.Screen name="ProfileStack" component={Profile} options={{ headerShown: false }} />
       <Stack.Screen name="WebContent" component={WebContent} options={{ headerShown: false }} />
+      <Stack.Screen name="ProjectsStack" component={UserProjects} options={{ headerShown: false }} />
       <Stack.Screen name="FollowerProfile" component={FollowProfile} options={{ headerShown: false }} />
       <Stack.Screen name="AllUserFollowing" component={AllUserFollowing} options={{ headerShown: false }} />
     </Stack.Navigator>

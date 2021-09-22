@@ -19,7 +19,10 @@ function TechnologiesList({repositories, navigate}) {
   function FlatListHandler({item}) {
 
     function buttonHandler() {
-      Alert.alert('Alerta',item.language, [{text: 'OK'}])
+      navigate('ProjectsStack', {
+        repositories: repositories,
+        filter: item.language
+      })
     }
 
     function getLanguageIcon(language) {
@@ -51,6 +54,10 @@ function TechnologiesList({repositories, navigate}) {
     )
   }
 
+  function seeAllButtonHandler() {
+    navigate('ProjectsStack', { repositories: repositories })
+  }
+
   return (
     <styled.Container>
 
@@ -58,7 +65,7 @@ function TechnologiesList({repositories, navigate}) {
             
             <styled.Title> Principais tecnologias </styled.Title>
             
-            <styled.SeeAllButton> 
+            <styled.SeeAllButton onPress={seeAllButtonHandler}> 
                 <styled.SeeAllText> Ver projetos </styled.SeeAllText>
             </styled.SeeAllButton>
         </styled.RowContainer>

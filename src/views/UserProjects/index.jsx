@@ -3,14 +3,12 @@ import * as styled from './style'
 import * as aux from '../../utils'
 import { connect } from 'react-redux'
 import { FlatList } from 'react-native'
-import Header from '../../components/Header'
 import Languages from '../../../assets/icons'
 import { ActivityIndicator } from 'react-native'
+import { useRoute } from '@react-navigation/core'
+import HeaderNav from '../../components/HeaderNav'
 import MaskedGradient from '../../components/MaskedGradient'
 import { setUrlWebView } from '../../store/actions/urlSource'
-
-
-const trending = require('trending-github')
 
 
 function Logo({language, color, size}) {
@@ -18,23 +16,33 @@ function Logo({language, color, size}) {
     return  <Icon color={color} height={size} width={size}/> 
 }
 
-export function Home({navigation, onRedirect}) {
+export function UserProjects({user, navigation, onRedirect}) {
   const [isLoading, setIsLoading] = React.useState(false)
+  const [userName, setUserName] = React.useState('')
   const [data, setData] = React.useState('')
   
+  const route = useRoute()
+  const { repositories, filter } = route.params
+
   React.useEffect(() => {
     setIsLoading(true)
-    async function fetchFeed() {
-        try {
-            const feed = await trending('today', '')
-            // console.log(feed)
-            setData(feed)
-            setIsLoading(false)
-        } catch (error) {
-            console.log(error)
-        }
+
+    if (repositories) {
+        if (filter) {
+            const filtered = aux.filterByLanguage(repositories, filter)
+            const name = filtered[0].owner.login
+            setData(filtered)
+            setUserName(name)
+        } 
+        else  setData(repositories)
+    } else {
+        const repos = user.repos.nodes
+        const name = user.login
+        setData(repos)
+        setUserName(name)   
     }
-    fetchFeed()
+    
+    setIsLoading(false)
   },[])
 
   function ActivityRender() {
@@ -48,8 +56,8 @@ export function Home({navigation, onRedirect}) {
   function Card({item}) {
 
       function gitHubButtonHandler() {
-        onRedirect(item.href)
-        navigation.navigate('WebContent', { url: item.href })
+        onRedirect(item.html_url)
+        navigation.navigate('WebContent', { url: item.html_url })
       }
 
       return (
@@ -57,13 +65,13 @@ export function Home({navigation, onRedirect}) {
             
             <styled.CardHeader>
 
-                <styled.Author>{item.author}</styled.Author>
+                <styled.Author>{item.full_name}</styled.Author>
 
                 <styled.RowContent justify='flex-end'>
                     <styled.Icon name='star-outline' size={15} color={styled.StarIconColor} />
-                    <styled.Counter>{item.stars}</styled.Counter>
+                    <styled.Counter>{item.stargazers_count}</styled.Counter>
                     <styled.Icon name='git-branch' size={15} color={styled.ForkIconColor} />
-                    <styled.Counter>{item.forks}</styled.Counter>
+                    <styled.Counter>{item.forks_count}</styled.Counter>
                 </styled.RowContent>
 
             </styled.CardHeader>
@@ -82,7 +90,9 @@ export function Home({navigation, onRedirect}) {
                     <styled.InfoContent>
 
                         <styled.InfoTitle>Descrição</styled.InfoTitle>
-                        <styled.InfoDescription>{aux.truncateText(item.description)}</styled.InfoDescription>
+                        <styled.InfoDescription>{ item.description ?
+                            aux.truncateText(item.description)
+                            : 'Projeto sem descrição...'}</styled.InfoDescription>
                         
                         <styled.RowContent justify='space-between'>
 
@@ -113,7 +123,7 @@ export function Home({navigation, onRedirect}) {
   return (
     <styled.Container>
         
-        <Header screenTab='HomeTab'/>
+        <HeaderNav screenNav='ProjectsStack' user={userName} navigation={navigation}/>
 
         <styled.Container>
         { isLoading 
@@ -121,7 +131,7 @@ export function Home({navigation, onRedirect}) {
             : <FlatList 
                 data={data}
                 renderItem={Card} 
-                keyExtractor={(item,index) => `${item.author}_${index}`}
+                keyExtractor={(item) => `${item.id}`}
         /> }
         </styled.Container>
 
@@ -129,10 +139,15 @@ export function Home({navigation, onRedirect}) {
   )
 }
 
+function mapStateToProps(state) {
+    return {
+        user: state.user,
+    }}
+
 function mapDispatchToProps(dispatch) {
     return {
       onRedirect: url => dispatch(setUrlWebView(url))
     }
   }
 
-export default connect(null,mapDispatchToProps)(Home)
+export default connect(mapStateToProps,mapDispatchToProps)(UserProjects)
