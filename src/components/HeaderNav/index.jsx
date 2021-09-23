@@ -2,7 +2,8 @@
 import React from 'react'
 import * as styled from './style'
 import { connect } from 'react-redux'
-import {TouchableOpacity} from 'react-native'
+import {TouchableOpacity, BackHandler} from 'react-native'
+import { removeLastUserViewed } from '../../store/actions/lastUserViwed'
 import { setPageTitle, removePageTitle } from '../../store/actions/titles'
 
 
@@ -15,10 +16,17 @@ function HeaderNav(props){
         setUserName(nameToSet)
     },[userName])
 
+    React.useEffect(() => {
+        BackHandler.addEventListener('hardwareBackPress', () => goBackHandler())
+        return () => BackHandler.removeEventListener('hardwareBackPress', () => goBackHandler())
+    },[])
+
 
     function goBackHandler() {
         if (props.screenNav==='Conversation')
-            props.onGoBack(props.title) 
+            props.onGoBack(props.title)
+        if (props.lastUser)
+            props.onRemoveLastUser(props.lastUser) 
         return props.navigation.goBack()
     }
     
@@ -39,7 +47,9 @@ function HeaderNav(props){
             </styled.LogoTextContainer>
         )
     }
-                    
+    
+    const actualUserName = props.lastUser?.login || props.user?.login
+
     return (
         <styled.Container>
           <styled.RowContainer>
@@ -55,15 +65,15 @@ function HeaderNav(props){
             )}
             
             { props.screenNav==='ProjectsStack' && (
-                <PageName thin='user' strong='Projects' />
+                <PageName thin={actualUserName} strong='Projects' />
             )}
 
             { props.screenNav==='AllUserFollowing' && (
-                <PageName thin='all' strong='Following' />
+                <PageName thin={actualUserName} strong='Following' />
             )}
 
             { props.screenNav==='AllUserFollowers' && (
-                <PageName thin='all' strong='Followers' />
+                <PageName thin={actualUserName} strong='Followers' />
             )}
 
             { props.screenNav==='Repository' && (
@@ -81,8 +91,9 @@ function HeaderNav(props){
 
 function mapStateToProps(state) {
     return {
+        user: state.user,
         title: state.title.titles[0],
-        lastUser: state.lastUser.lastUserViewed,
+        lastUser: state.lastUser.lastUserViewed[0],
     }
 }
 
@@ -90,6 +101,7 @@ function mapDispatchToProps(dispatch) {
     return {
         onRedirect: (title) => dispatch(setPageTitle(title)),
         onGoBack: (title) => dispatch(removePageTitle(title)),
+        onRemoveLastUser: (lastUser) => dispatch(removeLastUserViewed(lastUser)),
     } 
 }
 

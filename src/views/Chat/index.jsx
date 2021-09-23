@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 import { FlatList } from "react-native"
 import Header from "../../components/Header"
 import MaskedGradient from '../../components/MaskedGradient'
-import noMessageIcon from '../../../assets/img/noMessage.png'
+
 
 
 export function Chat({user, navigation}) {
