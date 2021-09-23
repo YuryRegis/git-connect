@@ -8,7 +8,7 @@ import Languages from '../../../assets/icons'
 import MaskedGradient from '../../components/MaskedGradient'
 import { setUrlWebView } from '../../store/actions/urlSource'
 import { ActivityIndicator, BackHandler, Alert } from 'react-native'
-
+import { throttle } from 'lodash'
 
 const trending = require('trending-github')
 
@@ -45,7 +45,7 @@ export function Home({navigation, onRedirect}) {
         ])
     }
     BackHandler.addEventListener('hardwareBackPress', () => goBackHandler())
-    return () => BackHandler.removeEventListener('hardwareBackPress', () => goBackHandler())
+    return () => BackHandler.removeEventListener('hardwareBackPress', () => throttle(goBackHandler, 500, {trailing: false}))
   },[])
 
   function ActivityRender() {
