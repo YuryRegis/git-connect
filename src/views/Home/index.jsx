@@ -5,9 +5,9 @@ import { connect } from 'react-redux'
 import { FlatList } from 'react-native'
 import Header from '../../components/Header'
 import Languages from '../../../assets/icons'
-import { ActivityIndicator } from 'react-native'
 import MaskedGradient from '../../components/MaskedGradient'
 import { setUrlWebView } from '../../store/actions/urlSource'
+import { ActivityIndicator, BackHandler, Alert } from 'react-native'
 
 
 const trending = require('trending-github')
@@ -37,6 +37,17 @@ export function Home({navigation, onRedirect}) {
     fetchFeed()
   },[])
 
+  React.useEffect(() => {
+    function goBackHandler() {
+        Alert.alert('Sair','Ei! Tem certeza que quer sair ?',[
+            {text: 'Não', onPress: () => null, style: 'cancel'},
+            {text: 'Sim', onPress: () => BackHandler.exitApp()}
+        ])
+    }
+    BackHandler.addEventListener('hardwareBackPress', () => goBackHandler())
+    return () => BackHandler.removeEventListener('hardwareBackPress', () => goBackHandler())
+  },[])
+
   function ActivityRender() {
       return (
         <styled.ActivityContent>
@@ -57,8 +68,8 @@ export function Home({navigation, onRedirect}) {
             
             <styled.CardHeader>
 
-                <styled.Author>{item.author}</styled.Author>
-
+                <styled.Author>({aux.truncateText(item.author,36)})</styled.Author>
+                
                 <styled.RowContent justify='flex-end'>
                     <styled.Icon name='star-outline' size={15} color={styled.StarIconColor} />
                     <styled.Counter>{item.stars}</styled.Counter>
@@ -68,13 +79,13 @@ export function Home({navigation, onRedirect}) {
 
             </styled.CardHeader>
 
-            <styled.RowContent >
+            <styled.CardContent>
 
                 <styled.Logo>
                     <MaskedGradient size={{h:100, w:100}}>
                         <Logo language={item.language} size={100}/>
                     </MaskedGradient>
-                    <styled.ProjectName>{item.name}</styled.ProjectName>
+                    <styled.ProjectName>{aux.truncateText(item.name, 20)}</styled.ProjectName>
                 </styled.Logo>
 
                 <styled.InfoContainer>
@@ -82,7 +93,10 @@ export function Home({navigation, onRedirect}) {
                     <styled.InfoContent>
 
                         <styled.InfoTitle>Descrição</styled.InfoTitle>
-                        <styled.InfoDescription>{aux.truncateText(item.description)}</styled.InfoDescription>
+                        <styled.InfoDescription>{ item.description ? 
+                            aux.truncateText(item.description)
+                            : 'Projeto sem descrição. Visite o projeto no GitHub para mais detalhes.' }
+                        </styled.InfoDescription>
                         
                         <styled.RowContent justify='space-between'>
 
@@ -104,7 +118,7 @@ export function Home({navigation, onRedirect}) {
 
                 </styled.InfoContainer>
 
-            </styled.RowContent>
+            </styled.CardContent>
 
         </styled.CardContainer>
       )

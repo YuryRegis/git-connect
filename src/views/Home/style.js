@@ -1,11 +1,13 @@
 import styled from 'styled-components/native'
 import Theme from '../../../assets/style/global'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-
+import { Dimensions } from 'react-native'
 
 export const ActivityIndicatorColor = Theme.activityIndicator.primary
 export const StarIconColor = Theme.feedCard.star
 export const ForkIconColor = Theme.feedCard.fork
+
+const halfWidth = Dimensions.get('window').width / 2
 
 export const Container = styled.View`
     flex: 1;
@@ -20,9 +22,9 @@ export const ActivityContent = styled.View`
 `
 
 export const CardContainer = styled.View`
-    /* width: 100%; */
+    width: 100%;
 
-    min-height: 200px;
+    min-height: 230px;
 
     border-radius: 5px;
     border-bottom-width: 1.3px;
@@ -39,6 +41,11 @@ export const CardHeader = styled.View`
     flex-direction: row;
     justify-content: space-between;
 `
+
+export const CardContent = styled.View`
+    flex-direction: row;
+    min-height: 200px;
+` 
 
 export const RowContent = styled.View`
     flex-direction: row;
@@ -64,9 +71,10 @@ export const Counter = styled.Text`
 
 export const Logo = styled.View`
     flex: 1;
-    width: 100px;
+    width: 100%;
     justify-content: center;
     align-items: center;
+    /* background-color: red; */
 `
 
 export const ProjectName = styled.Text`
@@ -80,9 +88,12 @@ export const InfoContainer = styled.View`
     width: 100%;
     justify-content: center;
     align-items: center;
+    /* background-color: blue; */
 `
 
 export const InfoContent = styled.View`
+    flex: 1;
+    width: 100%;
     margin: 8px 0;
 `
 
@@ -102,6 +113,8 @@ export const InfoTitle = styled.Text`
 `
 
 export const LanguageView = styled.View`
+    flex:1%;
+    width: 100%;
 `
 
 export const GithubButton = styled.TouchableOpacity`
