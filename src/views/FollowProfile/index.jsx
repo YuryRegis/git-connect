@@ -66,7 +66,7 @@ function Profile({navigation,...rest}) {
 
   return (
     <React.Fragment>
-      <HeaderNav chat={true} navigation={navigation} {...rest}/>
+      <HeaderNav chat={true} user={userData} navigation={navigation} {...rest}/>
       <styled.Container> 
 
         {isLoading ? (

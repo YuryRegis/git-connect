@@ -1,15 +1,30 @@
+// @refresh reset
 import React from 'react'
 import * as styled from './style'
+import { useRoute } from '@react-navigation/core'
 import {TouchableOpacity} from 'react-native'
 
 function HeaderNav(props){
+    const [userName, setUserName] = React.useState('')
+    const route = useRoute()
+
+    React.useEffect(() => {
+        const nameToSet = props.user?.login || props.user?.userName?.split(' ')[0]
+        setUserName(nameToSet)
+        console.log('ROUTE_PARAMS',route.params)
+    },[userName])
+
 
     function goBackHandler() {
         return props.navigation.goBack()
     }
 
     function goChatHandler() {
-        return props.navigation.navigate('ChatTab')
+        console.log('ENVIANDO...', props.user)
+        const params = {chatUser: props.user}
+        props.navigation.navigate('ChatTab', params)
+        setTimeout(() => props.navigation.push('Conversation', params), 300)
+        // props.navigation.push('Conversation')
     }
 
     function PageName({thin, strong}) {
@@ -20,8 +35,7 @@ function HeaderNav(props){
             </styled.LogoTextContainer>
         )
     }
-
-    
+                    
     return (
         <styled.Container>
           <styled.RowContainer>
@@ -53,7 +67,7 @@ function HeaderNav(props){
             )}
  
             { props.screenNav==='Conversation' && (
-                <PageName thin={props.user?.userName?.split(' ')[0]} strong='Chat' />
+                <PageName thin={userName} strong='Chat' />
             )}
         
           </styled.RowContainer>

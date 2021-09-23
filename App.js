@@ -8,6 +8,7 @@ import store from './src/store/config'
 import AppLoading from 'expo-app-loading'
 import { StatusBar } from 'expo-status-bar'
 import Config from 'react-native-config'
+import 'firebase/firestore'
 
 
 const Store = store()
