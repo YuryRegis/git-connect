@@ -5,10 +5,11 @@ import { connect } from 'react-redux'
 import React, {useEffect, useState} from 'react'
 import { useRoute } from '@react-navigation/core'
 import { FlatList, ActivityIndicator } from 'react-native'
+import { setLastUserViewed } from '../../store/actions/lastUserViwed'
 // import data from './data'
 
 
-function FollowersList({userFollowers, navigate, data}) {
+function FollowersList({userFollowers, navigate, data, onSetLastUser}) {
   const [followersData, setFollowersData] = useState([...userFollowers])
   const [topFollowers, setTopFollowers] = useState([])
   const [isLoading, setIsLoading] = useState(false)
@@ -37,6 +38,7 @@ function FollowersList({userFollowers, navigate, data}) {
   function FlatListHandler({item}) {
       if (!navigate) return console.log('Navigate error!',navigate)
     function onPressHandler() {
+        onSetLastUser(item)
         navigate('FollowerProfile', {
             userName: item.login
         })
@@ -92,4 +94,10 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, null)(FollowersList)
+function mapDispatchToProps(dispatch) {
+    return {
+        onSetLastUser: (user) => dispatch(setLastUserViewed(user))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FollowersList)

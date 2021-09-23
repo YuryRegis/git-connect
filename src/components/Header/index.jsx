@@ -43,8 +43,8 @@ function Header(props) {
 
             {props.screenTab === 'ChatTab' && (
                 <styled.LogoTextContainer>
-                    <styled.LogoLabelThin>User</styled.LogoLabelThin>
-                    <styled.LogoLabelStrong padding>Chat</styled.LogoLabelStrong>
+                    <styled.LogoLabelThin>chat</styled.LogoLabelThin>
+                    <styled.LogoLabelStrong padding>List</styled.LogoLabelStrong>
                 </styled.LogoTextContainer>
             )}
             

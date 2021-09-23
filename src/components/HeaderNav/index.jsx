@@ -1,27 +1,31 @@
 // @refresh reset
 import React from 'react'
 import * as styled from './style'
-import { useRoute } from '@react-navigation/core'
+import { connect } from 'react-redux'
 import {TouchableOpacity} from 'react-native'
+import { setPageTitle, removePageTitle } from '../../store/actions/titles'
+
 
 function HeaderNav(props){
     const [userName, setUserName] = React.useState('')
-    const route = useRoute()
 
+    
     React.useEffect(() => {
-        const nameToSet = props.user?.login || props.user?.userName?.split(' ')[0]
+        const nameToSet = props.lastUser?.name?.split(' ')[0] || props.lastUser?.login
         setUserName(nameToSet)
-        console.log('ROUTE_PARAMS',route.params)
     },[userName])
 
 
     function goBackHandler() {
+        if (props.screenNav==='Conversation')
+            props.onGoBack(props.title) 
         return props.navigation.goBack()
     }
-
+    
     function goChatHandler() {
-        console.log('ENVIANDO...', props.user)
-        const params = {chatUser: props.user}
+        
+        props.onRedirect({thin: `${userName}`, bold: 'Chat'})
+        const params = { chatUser: props.user }
         props.navigation.navigate('ChatTab', params)
         setTimeout(() => props.navigation.push('Conversation', params), 300)
         // props.navigation.push('Conversation')
@@ -66,8 +70,8 @@ function HeaderNav(props){
                 <PageName thin='git' strong='Repo' />
             )}
  
-            { props.screenNav==='Conversation' && (
-                <PageName thin={userName} strong='Chat' />
+            { (props.screenNav==='Conversation') && (
+                <PageName thin={props.title?.thin} strong={props.title?.bold} />
             )}
         
           </styled.RowContainer>
@@ -75,4 +79,18 @@ function HeaderNav(props){
     )
 }
 
-export default HeaderNav
+function mapStateToProps(state) {
+    return {
+        title: state.title.titles[0],
+        lastUser: state.lastUser.lastUserViewed,
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        onRedirect: (title) => dispatch(setPageTitle(title)),
+        onGoBack: (title) => dispatch(removePageTitle(title)),
+    } 
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderNav)

@@ -1,5 +1,6 @@
 import styled from "styled-components/native"
 import Theme from "../../../assets/style/global"
+import Ionicons from "react-native-vector-icons/Ionicons"
 
 
 export const Container = styled.View`
@@ -72,4 +73,23 @@ export const TextSection = styled.View`
     border-bottom-width: 1px;
     border-bottom-color: #393939;
     /* border-bottom-color: ${Theme.gradient.quinary}; */
+`
+
+export const noMessageView = styled.View`
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: ${Theme.background};
+`
+
+export const EmptyText = styled.Text`
+    font-size: ${Theme.font.size}px;
+    font-family: 'roboto-light';
+    color: ${Theme.tertiaryColor};
+
+    margin-top: 16px;
+`
+
+export const Icon = styled(Ionicons)`
+    color: black;
 `

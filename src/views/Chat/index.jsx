@@ -3,6 +3,8 @@ import * as styled from "./style"
 import { connect } from "react-redux"
 import { FlatList } from "react-native"
 import Header from "../../components/Header"
+import MaskedGradient from '../../components/MaskedGradient'
+import noMessageIcon from '../../../assets/img/noMessage.png'
 
 
 export function Chat({user, navigation}) {
@@ -13,10 +15,8 @@ export function Chat({user, navigation}) {
         setMessages(userChat)
     }, [])
 
-
     function FlatListHandler({item}) {
         const username = item.userName.split(' ')
-        // console.log('Message -> ', item.message)
         
         function onPressCardHandler() {
             const navProps = { chatUser: item } 
@@ -52,6 +52,21 @@ export function Chat({user, navigation}) {
 
                 </styled.UserInfo>
             </styled.CardContainer>
+        )
+    }
+
+    if(messages.length === 0) {
+        return (
+            <styled.Container>
+                <Header screenTab='ChatTab'/>
+                <styled.noMessageView>
+                    <MaskedGradient size={{h:70, w:70}}>
+                        <styled.Icon name='close-circle-sharp' size={70}/>
+                    </MaskedGradient>
+                    <styled.EmptyText>Oops! Parece que não temos mensagens aqui.</styled.EmptyText>
+                    <styled.EmptyText></styled.EmptyText>
+                </styled.noMessageView>
+            </styled.Container>
         )
     }
 

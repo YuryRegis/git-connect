@@ -42,6 +42,7 @@ export const LogoLabelThin = styled.Text`
     font-size: 19px;
     font-family: 'roboto-thin';
 
+    padding-right: 1px;
     color: ${Theme.primaryColor};
 `
 
