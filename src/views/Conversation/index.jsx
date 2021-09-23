@@ -13,17 +13,17 @@ import firebase from 'firebase/app'
 LogBox.ignoreLogs(['Setting a timer for a long period of time'])
 
 export function Conversation(props) {
-  const [messages, setMessages] = React.useState([]);
+  const [messages, setMessages] = React.useState([])
   
   const route = useRoute()
   const { chatUser } = route.params
 
-  // console.log('USER_LOGIN', chatUser.login) ok
-  
   const db = firebase.firestore()
-  const chatRef = db.collection(`${chatUser.id}`)
-    
+  const chatRef = db.collection(String(props.user.id))
+
+
   React.useEffect(() => {
+    console.log(messages)
 
     // Real time update chat
     const subscriber = chatRef.onSnapshot(querySnapshot => {
@@ -35,6 +35,7 @@ export function Conversation(props) {
         }
       }) // end forEach
     }) // end onSnapshot
+
     return () => subscriber()
 
     // setMessages([
@@ -51,9 +52,10 @@ export function Conversation(props) {
     // ])
   }, [])
 
-  const onSend = React.useCallback((messages = []) => {
+
+  const onSend = React.useCallback(async (messages = []) => {
     chatRef.doc(Date.now().toString()).set(messages[0])
-    setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
+    // setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
   }, [])
 
   function bubbleHandler(props) {
@@ -121,9 +123,15 @@ export function Conversation(props) {
             <GiftedChat
                 messages={messages}
                 onSend={messages => onSend(messages)}
-                user={{ _id: props.user.id,}}
+                user={{
+                   _id: String(chatUser.id), 
+                    name: chatUser.login,
+                    avatar: chatUser.html_url || '' ,
+                  }}
                 renderBubble={bubbleHandler}
+                placeholder='Digite sua mensagem...'
                 // renderAvatar={avatarHandler}
+                minInputToolbarHeight={50}
                 renderMessage={messageHandler}
                 renderInputToolbar={inputToolBarHandler}
                 scrollToBottom={true}
