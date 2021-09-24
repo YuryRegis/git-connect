@@ -15,7 +15,7 @@ export function login(user) {
     
     const userData = await api.getUserInfo(user.login)
     if (userData.status >= 400) {
-      ToastMessage(userData.message)
+      ToastMessage('Oops! Tente novamente...')
       dispatch({type: SET_LOADING, payload: {isLoading: false}})
       return
     }
