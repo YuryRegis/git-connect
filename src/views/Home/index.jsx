@@ -31,7 +31,7 @@ export function Home({navigation, onRedirect}) {
             setData(feed)
             setIsLoading(false)
         } catch (error) {
-            console.log(error)
+            // console.log(error)
         }
     }
     fetchFeed()

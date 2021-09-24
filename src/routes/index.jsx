@@ -13,7 +13,7 @@ if (isAndroid) {
     StatusBar.setBackgroundColor('#000')
 }
 
-console.log(Platform.OS)
+// console.log(Platform.OS)
 
 function validateAuth(isAuthenticated){
     if(isAuthenticated){

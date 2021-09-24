@@ -34,7 +34,7 @@ function HeaderNav(props){
     async function goChatHandler() {
         
         // Set user to chat
-        console.log('enviando -> ', props.lastUser?.login)
+        // console.log('enviando -> ', props.lastUser?.login)
         await props.onSetUserChat(props.lastUser)
 
         const params = { chatUser: props.user }

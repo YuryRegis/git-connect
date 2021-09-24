@@ -19,16 +19,16 @@ export function Conversation(props) {
   // const { chatUser } = route.params
   const chatUser = props.chatUser
 
-  console.log('user -> ', props.user?.login)
-  console.log('chatUser -> ', chatUser?.login)
-  console.log('params ->', route.params?.chatUser?.login)
+  // console.log('user -> ', props.user?.login)
+  // console.log('chatUser -> ', chatUser?.login)
+  // console.log('params ->', route.params?.chatUser?.login)
 
   const db = firebase.firestore()
   const chatRef = db.collection('chat')
 
 
   React.useEffect(() => {
-    console.log(messages)
+    // console.log(messages)
 
     // Real time update chat
     const subscriber = chatRef.onSnapshot(querySnapshot => {
