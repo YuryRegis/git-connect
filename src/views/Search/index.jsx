@@ -61,8 +61,6 @@ export function Search(props) {
 
                 <styled.InputContainer>
                   <styled.Input
-                    // returnKeyType="done"
-                    multiline={false}
                     placeholder='Pesquisar por repositórios'
                     keyboardType="default"
                     placeholderTextColor={styled.placeholderColor} />

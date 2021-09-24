@@ -3,11 +3,13 @@ import {ToastAndroid} from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import {LOGIN, LOGOUT, SET_LOADING, SET_AUTH, SET_USER_CHAT} from './types'
 import {SET_USER_REPOS, SET_USER_FOLLOWERS, SET_USER_FOLLOWING} from '../actions/types'
-
+import { Platform } from 'react-native'
 
 function ToastMessage(message) {
     return ToastAndroid.show(message, ToastAndroid.LONG)
 }
+
+const isAndroid = Platform.OS === 'android'
 
 export function login(user) {
   return async dispatch => {
@@ -15,7 +17,7 @@ export function login(user) {
     
     const userData = await api.getUserInfo(user.login)
     if (userData.status >= 400) {
-      ToastMessage('Oops! Tente novamente...')
+      isAndroid && ToastMessage('Oops! Tente novamente...')
       dispatch({type: SET_LOADING, payload: {isLoading: false}})
       return
     }

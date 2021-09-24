@@ -28,7 +28,7 @@ const GitApi = axios.create({
     // console.log(`${search}, ${language}, ${page} }`)
     const languageTerm = language ? `&language=${language}` : ''
     const searchTerm = search ? search.split(' ').join('+') : ''
-    const URL = `https://api.github.com/search/repositories?q=${searchTerm}${languageTerm}&sort=stars&order=desc&page=${page}`
+    const URL = `https://api.github.com/search/repositories?q=${searchTerm}&sort=stars&order=desc&page=${page}`
     const response = await Get(URL)
     response.data['pages'] = Math.ceil(response.data.total_count / 30)
     return response.data
