@@ -63,6 +63,7 @@ export function Search(props) {
                   <styled.Input
                     placeholder='Pesquisar por repositórios'
                     keyboardType="default"
+                    onChangeText={(text) => setSearch(()=>text)}
                     placeholderTextColor={styled.placeholderColor} />
                     
                     <styled.SearchButton onPress={searchHandler}>
