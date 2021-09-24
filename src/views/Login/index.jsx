@@ -55,7 +55,7 @@ function Login(props) {
 
                 <GradientButton onPress={gradientButtonHandler}>
                     <styled.ButtonContainer>
-                        <styled.ButtonText> Sign In </styled.ButtonText>
+                        <styled.ButtonText> ENTRAR </styled.ButtonText>
                     </styled.ButtonContainer>
                 </GradientButton>
             </styled.InputContainer>

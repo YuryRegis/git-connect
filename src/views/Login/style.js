@@ -83,8 +83,9 @@ export const ButtonContainer = styled.View`
 
 export const ButtonText = styled.Text`
     font-size: 30px;
-    font-family: 'roboto-regular';
-    color: ${Theme.secondaryColor};
+    font-family: 'roboto-bold';
+    color: black;
+    /* color: ${Theme.secondaryColor}; */
 `
 
 export const AbsoluteContainer = styled.View`
