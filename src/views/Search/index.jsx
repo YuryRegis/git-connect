@@ -7,6 +7,7 @@ import Header from '../../components/Header'
 import RepoCard from '../../components/RepoCard'
 import { Picker } from '@react-native-community/picker'
 import MaskedGradient from '../../components/MaskedGradient'
+import LottieView from 'lottie-react-native'
 
 
 export function Search(props) {
@@ -100,10 +101,20 @@ export function Search(props) {
 
             {(isAlreadySearched && (!data || data?.length === 0) && !isLoading) ? (
                 <styled.EmptyContainer>
-                    <MaskedGradient size={{h:70, w:70}}>
-                        <styled.Icon name='close-circle-sharp' size={70} isBlack/>
-                    </MaskedGradient>
+
+                    <styled.Lottie>
+                        {/* <MaskedGradient size={{h:70, w:70}}>
+                            <styled.Icon name='close-circle-sharp' size={70} isBlack/>
+                        </MaskedGradient> */}
+                        <LottieView
+                            style={styled.LottieStyle} 
+                            source={require('../../../assets/lottie/41357-github-dark-mode.json')} 
+                            autoPlay loop />
+                    </styled.Lottie>
+
                     <styled.EmptyText>Nenhum repositório encontrado</styled.EmptyText>
+                    <styled.EmptyText>Tente novamente com um termo diferente.</styled.EmptyText>
+
                 </styled.EmptyContainer>
                 ) : (
                 <styled.SearchContent>

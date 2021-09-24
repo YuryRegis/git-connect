@@ -20,6 +20,11 @@ export const Picker = {
     color: `${Theme.primaryColor}`,
 }
 
+export const LottieStyle = {
+    width: 200,
+    height: 200,
+}
+
 export const PickerContainer = styled.View`
     border-width: ${isAndroid ? '1px' : 0};
     border-color: ${isAndroid ? Theme.search.borderColor : 'transparent'};
@@ -140,5 +145,9 @@ export const EmptyText = styled.Text`
     font-family: 'roboto-regular';
     color: ${Theme.tertiaryColor};
 
-    margin-top: 16px;
+    margin-bottom: 4px;
+`
+
+export const Lottie = styled.View`
+    margin-top: -60px;
 `
