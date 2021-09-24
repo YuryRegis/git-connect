@@ -31,9 +31,9 @@ export function login(user) {
     await dispatch({ type: SET_USER_FOLLOWING, payload: {following: {nodes: userFollowing}} })
 
     // chat
-    const chat = await AsyncStorage.getItem(String(userData.data.id))
-    if(chat)
-      await dispatch({ type: SET_USER_CHAT, payload: {chat: JSON.parse(chat)} })
+    // const chat = await AsyncStorage.getItem(String(userData.data.id))
+    // if(chat)
+    //   await dispatch({ type: SET_USER_CHAT, payload: {chat: JSON.parse(chat)} })
   
     await dispatch({ type: SET_LOADING, payload: {isLoading: false} })
     await dispatch({ type: SET_AUTH, payload: {isAuthenticated: true} })

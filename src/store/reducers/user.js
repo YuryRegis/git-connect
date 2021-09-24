@@ -43,11 +43,11 @@ function Reducer(state=initialState, action) {
                 ...state,
                 isLoading: action.payload.isLoading
             }
-        case SET_USER_CHAT:
-            return {
-                ...state,
-                messages: [...action.payload.chat]
-            }
+        // case SET_USER_CHAT:
+        //     return {
+        //         ...state,
+        //         messages: [...action.payload.chat]
+        //     }
         case SET_USER_REPOS:
             return {
                 ...state,
