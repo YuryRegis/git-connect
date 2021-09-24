@@ -60,7 +60,7 @@ export const Input = styled.TextInput`
     height: 50px;
     padding: 5px;
     /* padding-left: 25px; */
-    margin-bottom: 16px;
+    /* margin-bottom: 16px; */
 
     text-align: center;
 
