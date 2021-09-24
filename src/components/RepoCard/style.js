@@ -1,71 +1,128 @@
+import { Platform } from 'react-native'
 import styled from 'styled-components/native'
 import Theme from '../../../assets/style/global'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 
-export const Container = styled.View`
-    flex: 1;
-    margin: 0px 16px;
+export const StarIconColor = Theme.feedCard.star
+export const ForkIconColor = Theme.feedCard.fork
+export const BugIconColor = Theme.feedCard.bug
+export const EyeIconColor = Theme.feedCard.eye
+
+const isIos = Platform.OS === 'ios'
+const isAndroid = Platform.OS === 'android'
+
+export const CardContainer = styled.View`
+    min-height: ${isIos ? 260 : 230}px;
+
+    border-radius: 5px;
+    border-bottom-width: 1.3px;
+    border-color: ${Theme.feedCard.border};
+
+    margin: 0 8px 0px 8px;
+    padding: ${isIos ? '9px 9px'
+        : '9px 16px 9px 16px'};
+
+    background-color: ${Theme.feedCard.background};
 `
 
-export const ButtonCard = styled.TouchableOpacity`
-    width: 100%;
-`
+export const CardHeader = styled.View`
+    margin-bottom: 9px;
 
-export const GradientColors = {
-    primary: Theme.gradient.primary,
-    secondary: Theme.gradient.secondary,
-}
-
-export const HeaderContent = styled.View`
-    /* width: 100%; */
     flex-direction: row;
-    margin: 4px 8px;
     justify-content: space-between;
 `
 
-export const Language = styled.Text`
-    font-size: 10px;
-    font-family: 'roboto-regular';
-    color: ${Theme.primaryColor};
-    margin-left: 8px;
-    align-self: flex-end;
-`
-
-export const Content = styled.View`
-    width: 100%;
+export const CardContent = styled.View`
     flex-direction: row;
-    margin-bottom: 16px;
+    min-height: 200px;
+` 
 
-    align-items: center;
+export const RowContent = styled.View`
+    flex-direction: row;
+    justify-content: ${({justify}) => justify
+        ? justify : 'flex-start'};
 `
 
-export const RepoInfoContent = styled.View`
-    max-width: 300px;
-    padding-left: 16px;
-
-    border-left-width: 1px;
-    border-left-color: ${Theme.primaryColor};
+export const Author = styled.Text`
+    font-size: 15px;
+    color: ${Theme.feedCard.author};
 `
 
-export const Image = styled.Image`
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    
-    align-self: center;
-    margin: 16px;
+export const Icon = styled(Ionicons)`
+    margin-left: 4px;
+    color: ${({color}) => color ? color : Theme.primaryColor};
 `
-    
-export const RepoName = styled.Text`
+
+export const Counter = styled.Text`
+    font-size: 15px;
+    margin-left: 4px;
+    color: ${Theme.primaryColor};
+`
+
+export const Logo = styled.View`
+    flex: 1;
     width: 100%;
-    font-size: ${Theme.font.size}px;
-    color: ${Theme.primaryColor};
-    /* margin: 0 0 0 25px; */
+    justify-content: center;
+    align-items: center;
+    /* background-color: red; */
 `
 
-export const RepoDescription = styled.Text`
-    width: 100%; 
-    font-size: ${Theme.font.size - 2}px;
-    font-family: 'roboto-light';
-    color: ${Theme.primaryColor};
+export const ProjectName = styled.Text`
+    font-size: 15px;
+    margin-top: 4px;
+    color: ${Theme.feedCard.project};
 `
+
+export const InfoContainer = styled.View`
+    flex: 1;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+`
+
+export const InfoContent = styled.View`
+    flex: 1;
+    width: 100%;
+    margin: 8px 0;
+`
+
+export const InfoDescription = styled.Text`
+    margin-top: 4px;
+
+    color: ${Theme.feedCard.description};
+    font-size: ${Theme.font.size}px;
+    font-family: 'roboto-thin';
+`
+
+export const InfoTitle = styled.Text`
+    margin-top: 10px;
+    font-family: ${Theme.font.family};
+    font-size: ${Theme.font.size}px;
+    color: ${Theme.feedCard.title};
+`
+
+export const LanguageView = styled.View`
+    flex:1%;
+    width: 100%;
+`
+
+export const GithubButton = styled.TouchableOpacity`
+    padding: 9px 7px;
+    border-radius: 9px;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+    margin-top: 15px;
+    margin-left: 10px;
+
+    background-color: ${Theme.gradient.primary};
+`
+
+export const GithubButtonText = styled.Text`
+    font-size: 13px;
+    color: #EEE;
+    font-family: 'roboto-bold';
+`
+

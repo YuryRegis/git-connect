@@ -24,11 +24,14 @@ export const theme = {
     feedCard: {
         background: '#151619',
         border: '#6B6C6F',
-        title: '#eee',
-        description: '#eee',
+        title: '#EEE',
+        author: '#FF79ED',
+        description: '#EEE',
         project: '#A370F7',
         star: '#C9FF56',
         fork: '#1ADC19',
+        bug: '#FF5638',
+        eye: '#01CDFA',
     },
 
     // Header or HeaderNav
