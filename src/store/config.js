@@ -11,7 +11,7 @@ const reducers = combineReducers({
     user: userReducer,
     title: titlesReducer,
     webView: webViewReducer,
-    userChat: userChatReducer,
+    chatUser: userChatReducer,
     lastUser: lastUserReducer
 })
 

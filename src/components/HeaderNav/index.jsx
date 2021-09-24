@@ -2,6 +2,7 @@
 import React from 'react'
 import * as styled from './style'
 import { connect } from 'react-redux'
+import { setUserChat } from '../../store/actions/userChat'
 import {TouchableOpacity, BackHandler} from 'react-native'
 import { removeLastUserViewed } from '../../store/actions/lastUserViwed'
 import { setPageTitle, removePageTitle } from '../../store/actions/titles'
@@ -30,9 +31,12 @@ function HeaderNav(props){
         return props.navigation.goBack()
     }
     
-    function goChatHandler() {
+    async function goChatHandler() {
         
-        props.onRedirect({thin: `${userName}`, bold: 'Chat'})
+        // Set user to chat
+        console.log('enviando -> ', props.lastUser?.login)
+        await props.onSetUserChat(props.lastUser)
+
         const params = { chatUser: props.user }
         props.navigation.navigate('ChatTab', params)
         setTimeout(() => props.navigation.push('Conversation', params), 300)
@@ -81,7 +85,7 @@ function HeaderNav(props){
             )}
  
             { (props.screenNav==='Conversation') && (
-                <PageName thin={props.title?.thin} strong={props.title?.bold} />
+                <PageName thin={props.chatUser?.login} strong='Chat' />
             )}
         
           </styled.RowContainer>
@@ -92,7 +96,8 @@ function HeaderNav(props){
 function mapStateToProps(state) {
     return {
         user: state.user,
-        title: state.title.titles[0],
+        userChat: state.userChat?.props,
+        title: state.title?.titles[0] || null,
         lastUser: state.lastUser.lastUserViewed[0],
     }
 }
@@ -101,6 +106,7 @@ function mapDispatchToProps(dispatch) {
     return {
         onRedirect: (title) => dispatch(setPageTitle(title)),
         onGoBack: (title) => dispatch(removePageTitle(title)),
+        onSetUserChat: (user) => dispatch(setUserChat(user)),
         onRemoveLastUser: (lastUser) => dispatch(removeLastUserViewed(lastUser)),
     } 
 }

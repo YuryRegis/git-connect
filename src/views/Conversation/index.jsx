@@ -16,10 +16,15 @@ export function Conversation(props) {
   const [messages, setMessages] = React.useState([])
   
   const route = useRoute()
-  const { chatUser } = route.params
+  // const { chatUser } = route.params
+  const chatUser = props.chatUser
+
+  console.log('user -> ', props.user?.login)
+  console.log('chatUser -> ', chatUser?.login)
+  console.log('params ->', route.params?.chatUser?.login)
 
   const db = firebase.firestore()
-  const chatRef = db.collection(String(props.user.id))
+  const chatRef = db.collection('chat')
 
 
   React.useEffect(() => {
@@ -145,6 +150,7 @@ export function Conversation(props) {
 function mapStateToProps(state) {
   return {
     user: state.user,
+    chatUser: state.chatUser?.props,
   }
 }
 
