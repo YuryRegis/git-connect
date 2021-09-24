@@ -59,7 +59,7 @@ function HeaderNav(props){
           <styled.RowContainer>
 
             <TouchableOpacity onPress={()=>goBackHandler()}>
-                <styled.Icon size={23} name='chevron-back'/> 
+                <styled.Icon size={23} name='chevron-back' back={true}/> 
             </TouchableOpacity>
             
             { props.chat && (

@@ -81,7 +81,7 @@ export const LeftContent = styled.Text`
     font-size: 10px;
     /* font-weight: normal; */
     font-family: 'roboto-light';
-    color: ${Theme.primaryColor};
+    color: ${Theme.gradient.septenary};
 `
 
 export const FlatElementTitle = styled.Text`
@@ -90,5 +90,5 @@ export const FlatElementTitle = styled.Text`
 
     font-family: 'roboto-light';
     font-size: ${Theme.font.size}px;
-    color: ${Theme.primaryColor};
+    color: ${Theme.topProjectsContainer.textTitleColor};
 `

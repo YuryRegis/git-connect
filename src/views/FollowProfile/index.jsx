@@ -44,7 +44,7 @@ function Profile({navigation,...rest}) {
 
   function FlatListHandler({item}) {
     return (
-      <GradientCards key={`${item.id}`}>
+      <GradientCards colors={{primary:'#151619',secondary:'#2e2e2e'}} key={`${item.id}`}>
         <styled.RollFlatContainer key={`Row${item.id}`}>
           
           <styled.LeftContent>

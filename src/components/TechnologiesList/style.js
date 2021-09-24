@@ -25,7 +25,7 @@ export const RowContainer = styled.View`
 
 export const Title = styled.Text`
     font-size: ${Theme.font.size}px;
-    color: ${Theme.primaryColor};
+    color: ${Theme.secondaryColor};
 
     margin-left: 16px;
     text-transform: capitalize;

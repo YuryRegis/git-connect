@@ -65,7 +65,7 @@ function FollowersList({userFollowers, navigate, data, onSetLastUser}) {
             <styled.RowContainer>
 
                 <styled.Title> Seguidores </styled.Title>
-                <styled.UserCounter>{isLoading ? ' ? ' : followersData.length} </styled.UserCounter>
+                <styled.UserCounter>( {isLoading ? ' ? ' : followersData.length} )</styled.UserCounter>
 
             </styled.RowContainer>
 

@@ -24,7 +24,7 @@ export const RowContainer = styled.View`
 
 export const Title = styled.Text`
     font-size: ${Theme.font.size}px;
-    color: ${Theme.primaryColor};
+    color: ${Theme.secondaryColor};
 
     margin-left: 16px;
     text-transform: capitalize;
@@ -32,7 +32,7 @@ export const Title = styled.Text`
 
 export const UserCounter = styled.Text`
     font-size: ${Theme.font.size}px;
-    color: ${Theme.secondaryColor};
+    color: ${Theme.quaternaryColor};
 `
 
 export const SeeAllButton = styled.TouchableOpacity`

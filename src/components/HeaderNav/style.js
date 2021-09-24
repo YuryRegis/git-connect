@@ -31,7 +31,10 @@ export const ChatButton = styled.TouchableOpacity`
 export const Icon = styled(Ionicons)`
     width: ${({size}) => size}px;
     height: ${({size}) => size}px;
-    color: ${Theme.Header.tertiary};
+    color: ${({back})=> back ? 
+        Theme.Header.tertiary
+        : Theme.gradient.quinary};
+        
 `
 
 export const LogoTextContainer = styled.View`

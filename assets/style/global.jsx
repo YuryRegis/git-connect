@@ -3,6 +3,7 @@ export const theme = {
     primaryColor: '#EEE',
     secondaryColor: '#B9B9B9',
     tertiaryColor: '#6B6C6F',
+    quaternaryColor: '#A3A3A3',
     gradient: {
         primary: '#8D44AD', 
         secondary: '#F13D3D',
@@ -38,7 +39,7 @@ export const theme = {
     Header: {
         primary: '#A370F7',
         secondary: '#1ADC19',
-        tertiary: '#EEE', 
+        tertiary: '#B9B9B9', 
     },
 
     // TabBar Navigation
@@ -88,8 +89,9 @@ export const theme = {
     // Projects Container
     topProjectsContainer: {
         primaryColor: '#121312',
-        borderColor: '#A370F7',
-        textTitleColor: '#1ADC19',
+        borderColor: '#6B6C6F',
+        textTitleColor: '#A3A3A3',
+        textCounter: '#A3A3A3',
     },
 
     // Chat InputToolBar
