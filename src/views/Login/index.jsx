@@ -5,7 +5,24 @@ import { login } from '../../store/actions/user'
 import { ActivityIndicator } from 'react-native'
 import GradientButton from '../../components/GradientButton'
 import MaskedGradient from '../../components/MaskedGradient'
+import { LinearGradient } from 'expo-linear-gradient'
+import LottieView from 'lottie-react-native'
 
+
+
+function AnimatedLogo() {
+    return (
+        <LinearGradient 
+            style={styled.AnimateLogo}
+            start={{x: 0, y: 0}} end={{x: 1, y: 1}}
+            colors={[styled.primaryColor, styled.secondaryColor]}
+        >
+            <LottieView source={require('../../../assets/lottie/lf30_editor_1jth40fm.json')} 
+                style={styled.AnimateLogoView}
+                autoPlay loop />
+        </LinearGradient>
+    )
+}
 
 function Login(props) {
     const [input, setInput] = useState('')
@@ -17,15 +34,17 @@ function Login(props) {
     return (
         <styled.Container>
 
-            <MaskedGradient size={{h: 250, w:250}}>
+            {/* <MaskedGradient size={{h: 250, w:250}}>
               <styled.LogoIcon name='logo-github' size={250}/>
-            </MaskedGradient> 
+            </MaskedGradient>  */}
+
+            <AnimatedLogo />
             
             <styled.RowContainer>
-                {/* <MaskedGradient size={{h:50, w:55}}> */}
+                
                   <styled.LogoTextBold>Git</styled.LogoTextBold>
-                {/* </MaskedGradient> */}
-                <styled.LogoText>Connect</styled.LogoText>
+                  <styled.LogoText>Connect</styled.LogoText>
+
             </styled.RowContainer>
 
             <styled.InputContainer>

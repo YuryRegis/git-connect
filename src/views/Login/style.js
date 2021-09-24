@@ -3,7 +3,24 @@ import Theme from '../../../assets/style/global'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 
+export const primaryColor = Theme.gradient.primary
+export const secondaryColor = Theme.gradient.secondary
 export const placeHolderColor = Theme.input.placeholderColor
+
+
+export const AnimateLogo = {
+    width:200, 
+    height:200, 
+    borderRadius:100, 
+    justifyContent:'center', 
+    alignItems:'center'
+}
+
+export const AnimateLogoView = {
+    marginBottom: 5,
+    height: 200, 
+    width: 200, 
+}
 
 export const Container = styled.View`
     flex: 1;
@@ -19,22 +36,23 @@ export const LogoIcon = styled(Ionicons)`
 
 export const RowContainer = styled.View`
     flex-direction: row;
+    margin-top: 10px;
 `
 
 export const LogoTextBold = styled.Text`
     font-size: 50px;
-    color: ${Theme.primaryColor};
+    color: ${Theme.quaternaryColor};
     font-family: 'roboto-regular';
 `
 
 export const LogoText = styled.Text`
     font-size: 50px;
-    color: ${Theme.primaryColor};
+    color: ${Theme.quaternaryColor};
     font-family: 'roboto-thin';
 `
 
 export const InputContainer = styled.View`
-    margin: 16px;
+    margin: 59px 16px 16px 16px;
 `
 
 export const Input = styled.TextInput`
@@ -66,7 +84,7 @@ export const ButtonContainer = styled.View`
 export const ButtonText = styled.Text`
     font-size: 30px;
     font-family: 'roboto-regular';
-    color: ${Theme.primaryColor};
+    color: ${Theme.secondaryColor};
 `
 
 export const AbsoluteContainer = styled.View`
