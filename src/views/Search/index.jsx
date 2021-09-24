@@ -45,7 +45,7 @@ export function Search(props) {
         setPage(()=>1)
         setData([])
 
-        console.log('page',page)
+        // console.log('page',page)
         const response = await api.searchRepos({search, language, page})
         setPage(() => page + 1)
         setIsLoading(false)
@@ -61,16 +61,17 @@ export function Search(props) {
 
                 <styled.InputContainer>
                   <styled.Input
-                    onChangeText={value => setSearch(value)}
                     placeholder='Pesquisar por repositórios'
+                    keyboardType="default"
                     placeholderTextColor={styled.placeholderColor} />
-                  
-                  <styled.SearchButton onPress={searchHandler}>
-                    <styled.Icon name='search' size={19} />
-                  </styled.SearchButton>
+                    
+                    <styled.SearchButton onPress={searchHandler}>
+                        <styled.Icon name='search' size={19} />
+                    </styled.SearchButton>
+                   
                 </styled.InputContainer>
 
-                <styled.PickerContainer>    
+                {/* <styled.PickerContainer>    
                     <Picker
                       style={styled.Picker}   
                       selectedValue={language}
@@ -88,11 +89,11 @@ export function Search(props) {
                     </Picker>
                     
                     {/* Gambiarra para estilização do Picker */}
-                    <styled.ChevronContainer>
+                    {/* <styled.ChevronContainer>
                         <styled.PickerText isSelected={language===''}>Linguagem</styled.PickerText>
                         <styled.Icon name='chevron-down' size={19} />
                     </styled.ChevronContainer>
-                </styled.PickerContainer>
+                </styled.PickerContainer> */}
                 
             </styled.RowContainer>
 

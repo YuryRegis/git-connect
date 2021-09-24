@@ -1,13 +1,14 @@
 import styled from 'styled-components/native'
 import Theme from '../../../assets/style/global'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import { Dimensions } from 'react-native'
+import { Platform } from 'react-native'
+
 
 export const ActivityIndicatorColor = Theme.activityIndicator.primary
 export const StarIconColor = Theme.feedCard.star
 export const ForkIconColor = Theme.feedCard.fork
 
-const halfWidth = Dimensions.get('window').width / 2
+const isIos = Platform.OS === 'ios'
 
 export const Container = styled.View`
     flex: 1;
@@ -22,16 +23,16 @@ export const ActivityContent = styled.View`
 `
 
 export const CardContainer = styled.View`
-    width: 100%;
-
-    min-height: 230px;
+    min-height: ${isIos ? 260 : 230}px;
 
     border-radius: 5px;
     border-bottom-width: 1.3px;
     border-color: ${Theme.feedCard.border};
 
     margin: 0 8px 0px 8px;
-    padding: 9px 16px 9px 16px;
+    padding: ${isIos ? '9px 9px'
+        : '9px 16px 9px 16px'};
+
     background-color: ${Theme.feedCard.background};
 `
 

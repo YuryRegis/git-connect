@@ -1,14 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { SafeAreaView, StatusBar } from 'react-native'
+import { View, StatusBar, Platform } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 
 import TabNav from './Tab'
 import Login from '../views/Login'
 
+const isAndroid = Platform.OS==='android'
 
-StatusBar.setBarStyle('light-content')
-StatusBar.setBackgroundColor('#000')
+if (isAndroid) {
+    StatusBar.setBarStyle('light-content')
+    StatusBar.setBackgroundColor('#000')
+}
+
+// console.log(Platform.OS)
 
 function validateAuth(isAuthenticated){
     if(isAuthenticated){
@@ -24,9 +29,10 @@ function validateAuth(isAuthenticated){
 
 export function Routes (props) {
     return (
-        <SafeAreaView style={{flex:1}}>
+        <View style={{flex:1}}>
+            {Platform.OS=='ios' && <View style={{height:28, backgroundColor: 'black'}}/>}
             {validateAuth(props.isAuthenticated)}
-        </SafeAreaView>
+        </View>
     )
 }
 

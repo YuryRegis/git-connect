@@ -14,28 +14,28 @@ const GitApi = axios.create({
         })
         return response
     } catch ({response}) {
-        console.log(`Error(${response.status}) =>`, response.data.message)
+        // console.log(`Error(${response.status}) =>`, response.data.message)
         return response
     }
 }
 
  export async function getFeed() {
     const response = await Get('https://private-anon-f5cd8f9452-githubtrendingapi.apiary-proxy.com/repositories')
-    console.log(response.data)
+    // console.log(response.data)
 }
 
  export async function searchRepos({search, language, page=1}) {
-    console.log(`${search}, ${language}, ${page} }`)
+    // console.log(`${search}, ${language}, ${page} }`)
     const languageTerm = language ? `&language=${language}` : ''
     const searchTerm = search ? search.split(' ').join('+') : ''
-    const URL = `https://api.github.com/search/repositories?q=${searchTerm}${languageTerm}&sort=stars&order=desc&page=${page}`
+    const URL = `https://api.github.com/search/repositories?q=${searchTerm}&sort=stars&order=desc&page=${page}`
     const response = await Get(URL)
     response.data['pages'] = Math.ceil(response.data.total_count / 30)
     return response.data
 } 
 
  export async function getUserInfo(username) {
-   console.log(`LOGANDO COM -> ${username}`)
+//    console.log(`LOGANDO COM -> ${username}`)
    const response = await Get(`https://api.github.com/users/${username}`)
    return response
 }

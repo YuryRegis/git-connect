@@ -3,16 +3,19 @@ import * as styled from './style'
 import { FlatList } from 'react-native'
 import { useRoute } from '@react-navigation/core'
 import HeaderNav from '../../components/HeaderNav'
+import { setLastUserViewed } from '../../store/actions/lastUserViwed' 
+import { connect } from 'react-redux'
 
 
-function AllUserFollowing({navigation}) {
+function AllUserFollowing({navigation, onSetLastUserViewed}) {
     const route = useRoute()
     const { data, origin } = route.params
 
     function Card({item}) {
         
-        function userCardHandler() {
-            navigation.navigate('FollowerProfile',{ userName: item.login })
+        async function userCardHandler() {
+            await onSetLastUserViewed(item.login)
+            navigation.push('FollowerProfile',{ userName: item.login })
         }
         
         return (
@@ -60,4 +63,11 @@ function AllUserFollowing({navigation}) {
 }
 
 
-export default AllUserFollowing
+function mapDispatchToProps(dispatch) {
+    return {
+        onSetLastUserViewed: (userName) => dispatch(setLastUserViewed(userName))
+    }
+}
+
+
+export default connect(null, mapDispatchToProps)(AllUserFollowing)

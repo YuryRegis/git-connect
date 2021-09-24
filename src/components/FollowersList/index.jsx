@@ -37,7 +37,8 @@ function FollowersList({userFollowers, navigate, data, onSetLastUser}) {
 
   function FlatListHandler({item}) {
       if (!navigate) return console.log('Navigate error!',navigate)
-    async function onPressHandler() {
+    
+      async function onPressHandler() {
         await onSetLastUser(item)
         navigate('FollowerProfile', {
             userName: item.login

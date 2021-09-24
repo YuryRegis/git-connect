@@ -20,7 +20,7 @@ export function Chat({user, navigation}) {
         
         function onPressCardHandler() {
             const navProps = { chatUser: item } 
-            navigation.push('Conversation', navProps)
+            // navigation.push('Conversation', navProps)
         }
         
         return (

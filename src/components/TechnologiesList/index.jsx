@@ -36,6 +36,7 @@ function TechnologiesList({repositories, navigate}) {
     }
     const IconSVG = getLanguageIcon(item.language)
           
+    // console.log(`${item.language} => `, IconSVG)
     return (
         <styled.GradientButton onPress={buttonHandler} {...item}>
             <LinearGradient 
