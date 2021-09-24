@@ -61,17 +61,20 @@ export const RowContainer = styled.View`
     flex-direction: row;
     align-items: center;
     justify-content: center;
+
+    /* background-color: yellow; */
 `
 
 export const InputContainer = styled.View`
     flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
+    /* background-color: red; */
+    justify-content: center;
 `
 
 export const Input = styled.TextInput`
-    width: 220px;
-    height: 40px;
+    width: 75%;
+    height: ${isAndroid ? 45 : 40}px;
     margin: 16px 0;
     padding: 4px 20px;
 
@@ -88,11 +91,17 @@ export const Button = styled.TouchableOpacity`
     margin-left: 16px;
 `
 
-export const SearchButton = styled.TouchableOpacity`   
-    position: absolute;
-    z-index: 1;
+export const AbsoluteContent = styled.View`
 
-    padding-right: 16px;
+`
+
+export const SearchButton = styled.TouchableOpacity`   
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-left: 16px;
+    /* width: 100%; */
+    /* position: absolute; */
+    /* z-index: -1; */
     /* background-color: yellow; */
 `
 
