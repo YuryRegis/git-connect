@@ -1,5 +1,6 @@
 import React from 'react'
 import * as styled from './style'
+import * as aux from '../../utils'
 import { FlatList } from 'react-native'
 import { useRoute } from '@react-navigation/core'
 import HeaderNav from '../../components/HeaderNav'
@@ -26,7 +27,7 @@ function AllUserFollowing({navigation, onSetLastUserViewed}) {
                     <styled.Avatar source={{uri: item.avatar_url}}/>
                     
                     <styled.NameContent>
-                        <styled.UserName>{item.login}</styled.UserName>
+                        <styled.UserName>{aux.truncateText(item.login, 13)}</styled.UserName>
                     </styled.NameContent>
 
                </styled.HeadContainer>
