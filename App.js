@@ -7,9 +7,7 @@ import FirebaseConfig from './firebaseConfig'
 import { Provider } from 'react-redux'
 import store from './src/store/config'
 import AppLoading from 'expo-app-loading'
-import { StatusBar } from 'expo-status-bar'
 import 'firebase/firestore'
-
 
 const Store = store()
 
