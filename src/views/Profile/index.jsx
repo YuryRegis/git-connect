@@ -23,7 +23,7 @@ function Home({user, navigation, onRedirect, ...rest}) {
 
   return (
     <React.Fragment>
-      <Header logout {...rest}/>
+      <Header logout {...rest} navigation={navigation}/>
       <styled.Container>
 
         <UserProfilePhoto source={{uri: user.avatarUrl}} height={150} width={150}/>

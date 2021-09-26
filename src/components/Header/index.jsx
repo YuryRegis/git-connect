@@ -12,12 +12,16 @@ function Header(props) {
         props.onLogout()
     }
 
+    function secretHandler() {
+        props.navigation.push('Secret')
+    }
+
     return (
         <styled.Container>
           <styled.RowContainer justify='space-between'>
 
             <styled.RowContainer padding={16} justify='flex-start'>
-                <TouchableOpacity onPress={()=>{}}>
+                <TouchableOpacity onPress={()=>secretHandler()}>
                     <styled.Icon size={23} name='logo-github'/>
                 </TouchableOpacity>
 

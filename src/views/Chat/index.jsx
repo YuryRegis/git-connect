@@ -58,7 +58,7 @@ export function Chat({user, navigation}) {
     if(messages.length === 0) {
         return (
             <styled.Container>
-                <Header screenTab='ChatTab'/>
+                <Header screenTab='ChatTab' navigation={navigation}/>
                 <styled.noMessageView>
                     <MaskedGradient size={{h:70, w:70}}>
                         <styled.Icon name='close-circle-sharp' size={70}/>
@@ -72,7 +72,7 @@ export function Chat({user, navigation}) {
 
     return (
         <styled.Container>
-            <Header screenTab='ChatTab'/>
+            <Header screenTab='ChatTab' navigation={navigation}/>
 
             <FlatList 
                 data={messages}

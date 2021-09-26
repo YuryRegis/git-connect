@@ -21,6 +21,14 @@ export const theme = {
         border: '#A370F7',
     },
 
+    // Secret Card
+    secretCard: {
+        background: '#242424',
+        alternative: '#464646',
+        border: '#5c5c5c',
+        text: '#A3A3A3',
+    },
+
     // FeedCard
     feedCard: {
         background: '#151619',

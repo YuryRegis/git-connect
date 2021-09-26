@@ -127,7 +127,7 @@ export function Home({navigation, onRedirect}) {
   return (
     <styled.Container>
         
-        <Header screenTab='HomeTab'/>
+        <Header screenTab='HomeTab' navigation={navigation}/>
 
         <styled.Container>
         { isLoading 
