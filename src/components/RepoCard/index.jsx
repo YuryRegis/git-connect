@@ -92,4 +92,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(null, mapDispatchToProps)(RepoCard)
+export default React.memo(connect(null, mapDispatchToProps)(RepoCard))

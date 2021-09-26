@@ -29,6 +29,8 @@ export function Search(props) {
         )
     }
 
+    const memoItem = React.useMemo(() => FlatListHandler, [data])
+
     async function nextPageSearch() {
         if (isLoading || (page > pageLimit)) return
         setIsLoading(true)
@@ -56,7 +58,7 @@ export function Search(props) {
 
     return (
         <styled.Container>
-            <Header screenTab='SearchTab'/>
+            <Header screenTab='SearchTab' {...props}/>
             
             <styled.RowContainer>
 
@@ -123,8 +125,8 @@ export function Search(props) {
                         style={{width: '100%'}}
                         keyExtractor={item => String(item.id)}
                         onEndReached={nextPageSearch}
-                        onEndReachedThreshold={0.2}
-                        renderItem={FlatListHandler}
+                        onEndReachedThreshold={0.4}
+                        renderItem={memoItem}
                         data={data}
                     />
 
