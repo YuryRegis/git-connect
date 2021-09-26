@@ -129,9 +129,9 @@ export function Conversation(props) {
                 messages={messages}
                 onSend={messages => onSend(messages)}
                 user={{
-                   _id: String(chatUser.id), 
-                    name: chatUser.login,
-                    avatar: chatUser.html_url || '' ,
+                   _id: String(props.chatUser.id), 
+                    name: props.user.login,
+                    avatar: props.user.avatarUrl || '' ,
                   }}
                 renderBubble={bubbleHandler}
                 placeholder='Digite sua mensagem...'
