@@ -39,7 +39,7 @@ function HeaderNav(props){
 
         const params = { chatUser: props.user }
         props.navigation.navigate('ChatTab', params)
-        setTimeout(() => props.navigation.push('Conversation', params), 300)
+        // setTimeout(() => props.navigation.push('Conversation', params), 300)
         // props.navigation.push('Conversation')
     }
 
@@ -85,7 +85,9 @@ function HeaderNav(props){
             )}
  
             { (props.screenNav==='Conversation') && (
-                <PageName thin={props.chatUser?.login} strong='Chat' />
+                <PageName thin={props.chatUser?.userName?.split(' ')[0] 
+                    || props.userChat?.userName?.split(' ')[0]
+                    || 'user'} strong='Chat' />
             )}
         
           </styled.RowContainer>

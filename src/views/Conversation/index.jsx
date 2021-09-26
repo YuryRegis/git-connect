@@ -6,61 +6,32 @@ import { useRoute } from "@react-navigation/core"
 import HeaderNav from "../../components/HeaderNav"
 import { GiftedChat } from "react-native-gifted-chat"
 import { Bubble, Avatar, Send, InputToolbar, Message } from "react-native-gifted-chat"
-import { KeyboardAvoidingView, LogBox, Platform } from "react-native"
-import firebase from 'firebase/app'
+import { KeyboardAvoidingView, Platform } from "react-native"
 
-
-LogBox.ignoreLogs(['Setting a timer for a long period of time'])
 
 export function Conversation(props) {
-  const [messages, setMessages] = React.useState([])
-  
-  const route = useRoute()
-  // const { chatUser } = route.params
-  const chatUser = props.chatUser
+    const [messages, setMessages] = React.useState([]);
 
-  // console.log('user -> ', props.user?.login)
-  // console.log('chatUser -> ', chatUser?.login)
-  // console.log('params ->', route.params?.chatUser?.login)
-
-  const db = firebase.firestore()
-  const chatRef = db.collection('chat')
-
-
+    const route = useRoute()
+    const { chatUser } = route.params
+    
   React.useEffect(() => {
-    // console.log(messages)
-
-    // Real time update chat
-    const subscriber = chatRef.onSnapshot(querySnapshot => {
-      querySnapshot.docChanges().forEach(change => {
-        if (change.type === "added") {
-          const message = change.doc.data()
-          message.createdAt = message.createdAt.toDate()
-          setMessages(prevMessages => GiftedChat.append(prevMessages, message))
-        }
-      }) // end forEach
-    }) // end onSnapshot
-
-    return () => subscriber()
-
-    // setMessages([
-    //   {
-    //     _id: props.user.id,
-    //     text: chatUser.messages,
-    //     createdAt: new Date(),
-    //     user: {
-    //       _id: chatUser.id,
-    //       name: chatUser.userName,
-    //       avatar: chatUser.userImg,
-    //     },
-    //   },
-    // ])
+    setMessages([
+      {
+        _id: 1,
+        text: chatUser.messages[0],
+        createdAt: new Date(),
+        user: {
+          _id: 2,
+          name: chatUser.userName,
+          avatar: chatUser.userImg,
+        },
+      },
+    ])
   }, [])
 
-
-  const onSend = React.useCallback(async (messages = []) => {
-    chatRef.doc(Date.now().toString()).set(messages[0])
-    // setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
+  const onSend = React.useCallback((messages = []) => {
+    setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
   }, [])
 
   function bubbleHandler(props) {
@@ -129,14 +100,10 @@ export function Conversation(props) {
                 messages={messages}
                 onSend={messages => onSend(messages)}
                 user={{
-                   _id: String(chatUser.id), 
-                    name: chatUser.login,
-                    avatar: chatUser.html_url || '' ,
-                  }}
+                    _id: 1,
+                }}
                 renderBubble={bubbleHandler}
-                placeholder='Digite sua mensagem...'
                 // renderAvatar={avatarHandler}
-                minInputToolbarHeight={50}
                 renderMessage={messageHandler}
                 renderInputToolbar={inputToolBarHandler}
                 scrollToBottom={true}
