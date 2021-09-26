@@ -80,10 +80,10 @@ function Reducer(state=initialState, action) {
                 login: action.payload.login,
                 avatarUrl: action.payload.avatar_url,
                 gitHubUrl: action.payload.html_url,
-                company: action.payload.company,
-                blog: action.payload.blog,
-                location: action.payload.location,
-                bio: action.payload.bio,
+                company: action.payload.company || 'No company name setted',
+                blog: action.payload.blog ||'No blog or link',
+                location: action.payload.location || 'No location setted.',
+                bio: action.payload.bio || 'No biography info.',
                 repos: {
                     totalCount: action.payload.public_repos,
                     nodes: []
