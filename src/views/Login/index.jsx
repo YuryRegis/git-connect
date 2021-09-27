@@ -64,7 +64,7 @@ function Login(props) {
                     placeholder={placeholder}
                     onFocus={() => setPlaceholder('')}
                     placeholderTextColor={styled.placeHolderColor}
-                    onBlur={() => placeholder==='' && setPlaceholder('GitHub Username')}    
+                    // onBlur={() => placeholder==='' && setPlaceholder('GitHub Username')}    
                 />
 
                 <GradientButton onPress={gradientButtonHandler}>
