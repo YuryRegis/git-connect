@@ -16,6 +16,17 @@ export const AnimateLogo = {
     alignItems:'center'
 }
 
+export const AnimatedCursor = {
+    position: 'absolute',
+    zIndex: 1,
+
+    width:25,
+    height:25,
+
+    marginTop: 5,
+    marginLeft: 10,
+}
+
 export const AnimateLogoView = {
     marginBottom: 5,
     height: 200, 

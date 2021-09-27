@@ -10,6 +10,15 @@ import LottieView from 'lottie-react-native'
 
 
 
+function AnimatedCursor({inputValue}) {
+    return <LottieView 
+        source={require('../../../assets/lottie/lf30_editor_cursor.json')} 
+        style={[styled.AnimatedCursor,
+             {opacity: inputValue==='' ? 1 : 0}]}
+        autoPlay loop />
+}
+
+
 function AnimatedLogo() {
     return (
         <LinearGradient 
@@ -18,7 +27,7 @@ function AnimatedLogo() {
             colors={[styled.primaryColor, styled.secondaryColor]}
         >
             <LottieView source={require('../../../assets/lottie/lf30_editor_1jth40fm.json')} 
-                style={styled.AnimateLogoView}
+                style={[styled.AnimateLogoView]}
                 autoPlay loop />
         </LinearGradient>
     )
@@ -26,6 +35,7 @@ function AnimatedLogo() {
 
 function Login(props) {
     const [input, setInput] = useState('')
+    const [placeholder, setPlaceholder] = useState('GitHub Username')
 
     function gradientButtonHandler() {
         props.onLogin({login: input})
@@ -41,17 +51,21 @@ function Login(props) {
             <AnimatedLogo />
             
             <styled.RowContainer>
-                
+
                   <styled.LogoTextBold>Git</styled.LogoTextBold>
                   <styled.LogoText>Connect</styled.LogoText>
 
             </styled.RowContainer>
 
             <styled.InputContainer>
+                <AnimatedCursor inputValue={input}/>
                 <styled.Input 
                     onChangeText={(text) => setInput(text)}
-                    placeholder='GitHub Username'
-                    placeholderTextColor={styled.placeHolderColor}/>
+                    placeholder={placeholder}
+                    onFocus={() => setPlaceholder('')}
+                    placeholderTextColor={styled.placeHolderColor}
+                    onBlur={() => placeholder==='' && setPlaceholder('GitHub Username')}    
+                />
 
                 <GradientButton onPress={gradientButtonHandler}>
                     <styled.ButtonContainer>

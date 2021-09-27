@@ -20,6 +20,16 @@ export const Picker = {
     color: `${Theme.primaryColor}`,
 }
 
+export const AnimatedCursor = {
+    position: 'absolute',
+    zIndex: 1,
+
+    width:25,
+    height:25,
+
+    marginLeft: -120,
+}
+
 export const LottieStyle = {
     width: 200,
     height: 200,
@@ -73,16 +83,23 @@ export const RowContainer = styled.View`
 export const InputContainer = styled.View`
     flex-direction: row;
     align-items: center;
+    text-align: center;
     /* background-color: red; */
     justify-content: center;
 `
 
+export const InputView = styled.View`
+    flex-direction: row;
+`
+
 export const Input = styled.TextInput`
-    width: 75%;
+    
+    width: 76%;
     height: ${isAndroid ? 45 : 40}px;
     margin: 16px 0;
     padding: 4px 20px;
 
+    text-align: center;
     font-size: ${Theme.font.size}px;
     font-family: 'roboto-light';
     color: ${Theme.primaryColor};
