@@ -52,3 +52,14 @@ Para compartilhamento de dados entre componentes pretende-se usar o [Redux](http
 ## Desafios futuros:
 
 - Desenvolver banco de dados local ou em nuvem para integração com o app;
+
+<hr style="border:2px solid gray"> </hr>
+
+## Créditos
+
+### Animações / Arte (Lottie-Files):
+
+- Animated GitHub logo -  [vik4graphic](https://lottiefiles.com/vik4graphic)
+- Animated GitHub Dark Mode - [Malan Alankara](https://lottiefiles.com/malankara)
+- Animated aboutME - [Yury Regis](https://lottiefiles.com/user/502863)
+- Animated Gradient circle border - [Yury Regis](https://lottiefiles.com/user/502863)
