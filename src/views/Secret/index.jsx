@@ -38,7 +38,7 @@ export function Secret({navigation}) {
         <HeaderNav navigation={navigation}/>
 
         <styled.Content>
-          <styled.Touchable onPress={flipHandler}>
+          <styled.Touchable onPress={flipHandler} activeOpacity={1}>
 
           <Animated.View style={[{transform: [{rotateY: interpolateFrontCard}]},
             styled.FlipCard.BackCard]}>
