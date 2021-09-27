@@ -10,6 +10,14 @@ import MaskedGradient from '../../components/MaskedGradient'
 import LottieView from 'lottie-react-native'
 
 
+function AnimatedCursor({inputValue}) {
+    return <LottieView 
+        source={require('../../../assets/lottie/lf30_editor_cursor.json')} 
+        style={[styled.AnimatedCursor,
+             {opacity: inputValue==='' ? 1 : 0}]}
+        autoPlay loop />
+}
+
 export function Search(props) {
     const [page, setPage] = React.useState(1)
     const [pageLimit, setPageLimit] = React.useState(1)
@@ -18,7 +26,7 @@ export function Search(props) {
     const [language, setLanguage] = React.useState('')
     const [isLoading, setIsLoading] = React.useState(false)
     const [isAlreadySearched, setIsAlreadySearched] = React.useState(false)
-
+    const [placeholder, setPlaceholder] = React.useState('Pesquisar por repositórios')
 
     function FlatListHandler({item, index}) {
         const colors = {
@@ -63,41 +71,24 @@ export function Search(props) {
             <styled.RowContainer>
 
                 <styled.InputContainer>
-                  <styled.Input
-                    placeholder='Pesquisar por repositórios'
-                    keyboardType="default"
-                    onChangeText={(text) => setSearch(()=>text)}
-                    placeholderTextColor={styled.placeholderColor} />
+
+                    {/* <styled.InputView> */}
+                        <AnimatedCursor inputValue={search}/>
+                        <styled.Input
+                            placeholder={placeholder}
+                            keyboardType="default"
+                            onFocus={() => setPlaceholder('')}
+                            onBlur={() => placeholder==='' && setPlaceholder('Pesquisar por repositórios')}
+                            onChangeText={(text) => setSearch(()=>text)}
+                            placeholderTextColor={styled.placeholderColor} />
+                    {/* </styled.InputView> */}
                     
                     <styled.SearchButton onPress={searchHandler}>
-                        <styled.Icon name='search' size={19} />
+                        <styled.Icon name='search' size={25} />
                     </styled.SearchButton>
                    
                 </styled.InputContainer>
 
-                {/* <styled.PickerContainer>    
-                    <Picker
-                      style={styled.Picker}   
-                      selectedValue={language}
-                      prompt='Filtrar pesquisa por linguagem'
-                      onValueChange={(value)=>setLanguage(value)}
-                    >       
-                        <Picker.Item label='' value='' />
-
-                        {Languages.map((item, _) => {
-                            return <Picker.Item 
-                             key={item.value} 
-                             label={item.label} 
-                             value={item.value}/>
-                        })} 
-                    </Picker>
-                    
-                    {/* Gambiarra para estilização do Picker */}
-                    {/* <styled.ChevronContainer>
-                        <styled.PickerText isSelected={language===''}>Linguagem</styled.PickerText>
-                        <styled.Icon name='chevron-down' size={19} />
-                    </styled.ChevronContainer>
-                </styled.PickerContainer> */}
                 
             </styled.RowContainer>
 
